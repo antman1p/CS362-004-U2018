@@ -1298,7 +1298,7 @@ int updateCoins(int player, struct gameState *state, int bonus)
 
 // Assignment 2 Refactoring FUnctions:
 
-int adventurerFunc(int drawntreasure, int currentPlayer, int cardDrawn, int temphand, int z)
+int adventurerFunc(struct gameState *state, int drawntreasure, int currentPlayer, int cardDrawn, int temphand, int z)
 {
 	while(drawntreasure<2){
 	if (state->deckCount[currentPlayer] <1){//if the deck is empty we need to shuffle discard and add to deck
