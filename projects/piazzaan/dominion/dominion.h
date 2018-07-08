@@ -129,11 +129,11 @@ int getWinners(int players[MAX_PLAYERS], struct gameState *state);
    1, others to 0 */
    
 // Assignemnt 2 Refactoring functions
-int adventurerFunc(struct gameState *state, int currentPlayer, int temphand[], int z);
-int smithyFunc();
-int great_hallFunc();
-int outpostFunc();
-int gardensFunc();
+//int adventurerFunc(struct gameState *state, int currentPlayer, int temphand[], int z);
+//int smithyFunc();
+//int great_hallFunc();
+//int outpostFunc();
+//int gardensFunc();
 
 
 #endif

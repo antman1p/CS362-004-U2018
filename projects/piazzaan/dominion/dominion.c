@@ -669,7 +669,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
     case adventurer:
 	// Assignment 2 refactor:  Call adventurerFunc
       adventurerFunc(state, currentPlayer, temphand, z);
-			
+	  return 0;
     case council_room:
       //+4 Cards
       for (i = 0; i < 4; i++)
@@ -1298,7 +1298,7 @@ int updateCoins(int player, struct gameState *state, int bonus)
 
 // Assignment 2 Refactoring FUnctions:
 
-int adventurerFunc(struct gameState *state, int drawntreasure, int currentPlayer, int cardDrawn, int temphand, int z)
+void adventurerFunc(struct gameState *state, int currentPlayer, int temphand[], int z)
 {
 	int cardDrawn;
 	int drawntreasure = 0;
@@ -1320,7 +1320,6 @@ int adventurerFunc(struct gameState *state, int drawntreasure, int currentPlayer
 	state->discard[currentPlayer][state->discardCount[currentPlayer]++]=temphand[z-1]; // discard all cards in play that have been drawn
 	z=z-1;
       }
-      return 0;
 }
 
 int smithyFunc()
