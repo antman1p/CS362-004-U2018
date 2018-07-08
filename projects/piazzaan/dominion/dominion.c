@@ -668,7 +668,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
     {
     case adventurer:
 	// Assignment 2 refactor:  Call adventurerFunc
-      adventurerFunc(*state, drawntreasure, currentPlayer, cardDrawn, temphand, z);
+      adventurerFunc(state, currentPlayer, temphand, z);
 			
     case council_room:
       //+4 Cards
@@ -1300,6 +1300,8 @@ int updateCoins(int player, struct gameState *state, int bonus)
 
 int adventurerFunc(struct gameState *state, int drawntreasure, int currentPlayer, int cardDrawn, int temphand, int z)
 {
+	int cardDrawn;
+	int drawntreasure = 0;
 	while(drawntreasure<2){
 	if (state->deckCount[currentPlayer] <1){//if the deck is empty we need to shuffle discard and add to deck
 	  shuffle(currentPlayer, state);
