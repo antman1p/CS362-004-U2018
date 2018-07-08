@@ -815,8 +815,8 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 		
     case smithy:
 	// Assignemnt 2 refactor: Call smithyFunc
-      smithyFunc();
-		
+      smithyFunc(state, currentPlayer, handPos);
+	  return 0;	
     case village:
       //+1 Card
       drawCard(currentPlayer, state);
@@ -1322,8 +1322,9 @@ void adventurerFunc(struct gameState *state, int currentPlayer, int temphand[], 
       }
 }
 
-int smithyFunc()
+int smithyFunc((int currentPlayer, int handPos, struct gameState *state}
 {
+	int i;
 	//+3 Cards
       for (i = 0; i < 3; i++)
 	{
@@ -1332,7 +1333,6 @@ int smithyFunc()
 			
       //discard card from hand
       discardCard(handPos, currentPlayer, state, 0);
-      return 0;
 }
 
 int great_hallFunc()
