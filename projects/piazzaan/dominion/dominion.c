@@ -668,7 +668,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
     {
     case adventurer:
 	// Assignment 2 refactor:  Call adventurerFunc
-      adventurerFunc(struct gameState *state, drawntreasure, currentPlayer, cardDrawn, temphand, z);
+      adventurerFunc(state, drawntreasure, currentPlayer, cardDrawn, temphand, z);
 			
     case council_room:
       //+4 Cards
@@ -748,7 +748,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
       return 0;
 			
     case gardens:
-	// Assignmane 2 refactoring: Call gardensFunc
+	// Assignment 2 refactoring: Call gardensFunc
 		gardensFunc();
       
 			
