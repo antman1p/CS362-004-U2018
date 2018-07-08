@@ -130,7 +130,7 @@ int getWinners(int players[MAX_PLAYERS], struct gameState *state);
    
 // Assignemnt 2 Refactoring functions
 
-//int smithyFunc();
+
 //int great_hallFunc();
 //int outpostFunc();
 //int gardensFunc();

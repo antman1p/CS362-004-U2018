@@ -881,7 +881,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 		
     case great_hall:
       // Assignemnt 2 reefactoring:  Call great_hallFunc
-	  great_hallFunc();
+	  great_hallFunc(state, currentPlayer, handPos);
 		
     case minion:
       //+1 action
@@ -1335,7 +1335,7 @@ int smithyFunc(struct gameState *state, int currentPlayer, int handPos)
       discardCard(handPos, currentPlayer, state, 0);
 }
 
-int great_hallFunc()
+int great_hallFunc(struct gameState *state, int currentPlayer, int handPos)
 {
 	//+1 Card
       drawCard(currentPlayer, state);
