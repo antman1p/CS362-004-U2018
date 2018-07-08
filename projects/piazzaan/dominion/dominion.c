@@ -670,6 +670,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 	// Assignment 2 refactor:  Call adventurerFunc
       adventurerFunc(state, currentPlayer, temphand, z);
 	  return 0;
+	  
     case council_room:
       //+4 Cards
       for (i = 0; i < 4; i++)
@@ -748,9 +749,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
       return 0;
 			
     case gardens:
-	// Assignment 2 refactoring: Call gardensFunc
-		gardensFunc();
-      
+      return -1;
 			
     case mine:
       j = state->hand[currentPlayer][choice1];  //store card we will trash
@@ -809,14 +808,13 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 	      break;
 	    }
 	}
-
-
       return 0;
 		
     case smithy:
 	// Assignemnt 2 refactor: Call smithyFunc
       smithyFunc(state, currentPlayer, handPos);
 	  return 0;	
+	  
     case village:
       //+1 Card
       drawCard(currentPlayer, state);
@@ -875,14 +873,13 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 	  }
 	}
       }
-	    
-      
       return 0;
 		
     case great_hall:
       // Assignemnt 2 reefactoring:  Call great_hallFunc
 	  great_hallFunc(state, currentPlayer, handPos);
-		
+	  return 0;	
+	  
     case minion:
       //+1 action
       state->numActions++;
@@ -1128,7 +1125,8 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 		
     case outpost:
       // Assignment 2 refactoring: Call outpostFunc
-		outpostFunc();
+		outpostFunc(state, currentPlayer, handPos);
+		return 0;
 		
     case salvager:
       //+1 buy
@@ -1147,13 +1145,8 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
       return 0;
 		
     case sea_hag:
-      for (i = 0; i < state->numPlayers; i++){
-	if (i != currentPlayer){
-	  state->discard[i][state->discardCount[i]] = state->deck[i][state->deckCount[i]--];			    state->deckCount[i]--;
-	  state->discardCount[i]++;
-	  state->deck[i][state->deckCount[i]--] = curse;//Top card now a curse
-	}
-      }
+	// Assignment 2 Refactor
+      sea_hagFunc(state, currentPlayer);
       return 0;
 		
     case treasure_map:
@@ -1322,7 +1315,7 @@ void adventurerFunc(struct gameState *state, int currentPlayer, int temphand[], 
       }
 }
 
-int smithyFunc(struct gameState *state, int currentPlayer, int handPos)
+void smithyFunc(struct gameState *state, int currentPlayer, int handPos)
 {
 	int i;
 	//+3 Cards
@@ -1335,7 +1328,7 @@ int smithyFunc(struct gameState *state, int currentPlayer, int handPos)
       discardCard(handPos, currentPlayer, state, 0);
 }
 
-int great_hallFunc(struct gameState *state, int currentPlayer, int handPos)
+void great_hallFunc(struct gameState *state, int currentPlayer, int handPos)
 {
 	//+1 Card
       drawCard(currentPlayer, state);
@@ -1345,23 +1338,31 @@ int great_hallFunc(struct gameState *state, int currentPlayer, int handPos)
 			
       //discard card from hand
       discardCard(handPos, currentPlayer, state, 0);
-      return 0;
 }
 
-int outpostFunc()
+void outpostFunc(struct gameState *state, int currentPlayer, int handPos)
 {
 	//set outpost flag
       state->outpostPlayed++;
 			
       //discard card
       discardCard(handPos, currentPlayer, state, 0);
-      return 0;
 }
 
-int gardensFunc()
+void sea_hagFunc(struct gameState *state, int currentPlayer) 
 {
-	return -1;
+	int i;
+	for (i = 0; i < state->numPlayers; i++){
+		if (i != currentPlayer){
+		  state->discard[i][state->discardCount[i]] = state->deck[i][state->deckCount[i]--];
+		  state->deckCount[i]--;
+		  state->discardCount[i]++;
+		  state->deck[i][state->deckCount[i]--] = curse;//Top card now a curse
+		}
+    }
 }
+
+
 
 //end of dominion.c
 
