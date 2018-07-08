@@ -1322,7 +1322,7 @@ void adventurerFunc(struct gameState *state, int currentPlayer, int temphand[], 
       }
 }
 
-int smithyFunc((int currentPlayer, int handPos, struct gameState *state}
+int smithyFunc(struct gameState *state, int currentPlayer, int handPos)
 {
 	int i;
 	//+3 Cards
