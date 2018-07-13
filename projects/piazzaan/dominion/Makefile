@@ -20,9 +20,15 @@ testBuyCard: testDrawCard.c dominion.o rngs.o
 
 testAll: dominion.o testSuite.c
 	gcc -o testSuite testSuite.c -g  dominion.o rngs.o $(CFLAGS)
+	
+unittestresults: unittest1.c dominion.o rngs.o
+	gcc -o unittestresults -g  unittestresults.c dominion.o rngs.o $(CFLAGS)
 
 interface.o: interface.h interface.c
 	gcc -c interface.c -g  $(CFLAGS)
+	
+rununittests: unittestresults
+	./unittestresults
 
 runtests: testDrawCard 
 	./testDrawCard &> unittestresult.out
