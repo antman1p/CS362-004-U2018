@@ -28,7 +28,7 @@ int failCnt = 0;
  * My assert also prints whether the test passes or fails.  If the test   
  * fails the fail counter int variable will increment by 1.
  */
- void assertTrue(int int1, int2) 
+ void assertTrue(int int1, int int2) 
  {
 	if (int1 == int2) 
 	{
@@ -46,7 +46,7 @@ int failCnt = 0;
  int main()
  {
 	int i;
-	int seed 1000;
+	int seed = 1000;
 	int numPlayer = 2;
 	int bonus;
 	int k[10] = {adventurer, council_room, feast, gardens, mine
