@@ -10,7 +10,8 @@
  * Include the following lines in your makefile:
  *
  * unittestresults: unittest1.c dominion.o rngs.o
- *      gcc -o unittestresults -g  unittestresults.c dominion.o rngs.o $(CFLAGS)
+ *      gcc -o unittestresults -g  unittest1.c dominion.o rngs.o $(CFLAGS)
+ *      ./unittestresults &> unittestresults.out
  * -----------------------------------------------------------------------
  */
 

@@ -23,7 +23,7 @@ testAll: dominion.o testSuite.c
 	
 unittestresults: unittest1.c dominion.o rngs.o
 	gcc -o unittestresults -g  unittest1.c dominion.o rngs.o $(CFLAGS)
-	./unittestresults &> unittestresult.out
+	./unittestresults &> unittestresults.out
 
 interface.o: interface.h interface.c
 	gcc -c interface.c -g  $(CFLAGS)
