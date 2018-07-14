@@ -86,11 +86,11 @@ int failCnt = 0;
 			
 			if (player == 0)
 			{
-				assertTrue(intNumHandCards == 5);
+				assertTrue(intNumHandCards, 5);
 			}
 			else
 			{
-				assertTrue(intNumHandCards == 0);
+				assertTrue(intNumHandCards, 0);
 			}
 			
 			
@@ -113,7 +113,7 @@ int failCnt = 0;
 			
 			printf("NumHandCards: %d\n", intNumHandCards);
 			
-			assertTrue(intNumHandCards == 5);
+			assertTrue(intNumHandCards, 5);
 			
 			
 			// If Number of players is 4 then to test the upper edge case we 
