@@ -87,7 +87,7 @@ int failCnt = 0;
 				
 				
 			// Call whosTurn() function
-			intWhoseTurn = whoseTurn(&gState)
+			intWhoseTurn = whoseTurn(&gState);
 			printf("\nInitial Who's Turn\n");
 			printf("Expected: %d\n", player);
 			printf("Result: %d\n", intWhoseTurn);	
@@ -106,7 +106,7 @@ int failCnt = 0;
 					endTurn(&gState);
 					
 					// Call whosTurn() function
-					intWhoseTurn = whoseTurn(&gState)
+					intWhoseTurn = whoseTurn(&gState);
 					printf("\nAfter Turns ended(Go Back to first Player):\n");
 					printf("Expected: %d\n", 3);
 					printf("Result: %d\n", intWhoseTurn);	
@@ -116,7 +116,7 @@ int failCnt = 0;
 				else
 				{
 					endTurn(&gState);
-					intWhoseTurn = whoseTurn(&gState)
+					intWhoseTurn = whoseTurn(&gState);
 					printf("\nAfter Turns ended(Go Back to first Player):\n");
 					printf("Expected: %d\n", 0);
 					printf("Result: %d\n", intWhoseTurn);
@@ -128,7 +128,7 @@ int failCnt = 0;
 				endTurn(&gState);
 				if (player == 0)
 				{
-					intWhoseTurn = whoseTurn(&gState)
+					intWhoseTurn = whoseTurn(&gState);
 					printf("\nAfter Turns Ended:\n");
 					printf("Expected: %d\n", 1);
 					printf("Result: %d\n", intWhoseTurn);
@@ -136,7 +136,7 @@ int failCnt = 0;
 				}
 				else
 				{
-					intWhoseTurn = whoseTurn(&gState)
+					intWhoseTurn = whoseTurn(&gState);
 					printf("\nAfter Turns ended(Go Back to first Player):\n");
 					printf("Expected: %d\n", 0);
 					printf("Result: %d\n", intWhoseTurn);
