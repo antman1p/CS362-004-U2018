@@ -78,10 +78,20 @@ int failCnt = 0;
 			
 			gState.whoseTurn = player;  // Set turn to current player
 			
+			// call the numHandCards function
 			intNumHandCards = numHandCards(&gState);
 			
-			//DEBUG
+			
 			printf("NumHandCards: %d\n", intNumHandCards);
+			
+			if (player == 0)
+			{
+				assertTrue(intNumHandCards == 5);
+			}
+			else
+			{
+				assertTrue(intNumHandCards == 0);
+			}
 			
 			
 			// End turns to go to from the first to the last player's turn
@@ -100,10 +110,10 @@ int failCnt = 0;
 			
 			intNumHandCards = numHandCards(&gState);
 			
-			//DEBUG
+			
 			printf("NumHandCards: %d\n", intNumHandCards);
 			
-			
+			assertTrue(intNumHandCards == 5);
 			
 			
 			// If Number of players is 4 then to test the upper edge case we 
