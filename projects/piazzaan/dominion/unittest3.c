@@ -6,7 +6,7 @@
  * piazzaan
  * 7/15/2108
  * 
- * Unit test 3 for Dominion function XXXXXXXXXX()
+ * Unit test 3 for Dominion function endTurn()
  * 
  * Include the following lines in your makefile:
  *
@@ -60,7 +60,7 @@ int failCnt = 0;
 
 
  
-	printf ("\n---------------------------------------------------\nTESTING XXXXXXXXXX():\n---------------------------------------------------");
+	printf ("\n---------------------------------------------------\nTESTING endTurn():\n---------------------------------------------------");
 	
 	
 	// Loop through edge cases of number of players 2 and 4
@@ -70,7 +70,7 @@ int failCnt = 0;
 		for (player = 0; player < numPlayer; player++)
 		{
 			printf("\n\n---------------------------------------------------\nNumber of players: %d\n", numPlayer);
-			printf("Player: %d\n", player + 1);
+			printf("Start with Player: %d\n", player + 1);
 					
 			memset(&gState, 23, sizeof(struct gameState));  // Clear game state
 			gameInit = initializeGame(numPlayer, k, seed, &gState);  // Initialize a new game
@@ -127,7 +127,8 @@ int failCnt = 0;
 				}
 				else
 				{
-					printf("\nAfter Turns ended(Go Back to first PLayer):\n");
+					printf("\nAfter Turns ended(Go Back to first PL
+					layer):\n");
 					printf("Expected: %d\n", 0);
 					printf("Result: %d\n", gState.whoseTurn);
 					assertTrue(gState.whoseTurn, 0);
