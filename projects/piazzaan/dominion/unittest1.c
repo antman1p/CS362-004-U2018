@@ -113,11 +113,11 @@ int failCnt = 0;
 				updateCoins(player, &gState, bonus);
 				
 				printf("\nCoin Count minus silvers\n");
-				printf("Expected: %d\n", handCount*1+bonus);
+				printf("Expected: %d\n", handCount*2+bonus);
 				printf("Result: %d\n", gState.coins);
 				
 				// Test Results
-				assertTrue(gState.coins, handCount*1+bonus);
+				assertTrue(gState.coins, handCount*2+bonus);
 				
 				
 				
@@ -128,11 +128,11 @@ int failCnt = 0;
 				updateCoins(player, &gState, bonus);
 				
 				printf("\nCoin Count minus golds\n");
-				printf("Expected: %d\n", handCount*1+bonus);
+				printf("Expected: %d\n", handCount*3+bonus);
 				printf("Result: %d\n", gState.coins);
 				
 				// Test Results
-				assertTrue(gState.coins, handCount*1+bonus);
+				assertTrue(gState.coins, handCount*3+bonus);
 
 			}
 		}
