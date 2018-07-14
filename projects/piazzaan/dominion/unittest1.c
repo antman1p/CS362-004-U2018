@@ -76,7 +76,7 @@ int failCnt = 0;
 	// Test the updateCoins function for each treasure, player and with different bonuses
 	// and hand counts.
 	// Loop through players
-	for (player = 0; player < numPlayer)
+	for (player = 0; player < numPlayer; player++)
 	{
 		// Loop through hand count
 		for (handCount = 1; handCount <= maxHandCount; handCount++)
@@ -108,7 +108,7 @@ int failCnt = 0;
 					printf("Hand Count: %d\n", handCount);
 					printf("Bonus: %d\n", bonus);
 					
-					memset((&gState, 23, sizeof(struct gameState));  // Clear game state
+					memset(&gState, 23, sizeof(struct gameState));  // Clear game state
 					gameInit = initializeGame(numPlayer, k, seed, &gState);  // Initialize a new game
 					memcpy(gState.hand[player], treasures, sizeof(int) * handCount);  // Set all cards to copper
 					
@@ -117,7 +117,7 @@ int failCnt = 0;
 					
 					printf("\nCoin Count minus %s\n", treasures);
 					printf("Expected: %d\n", handCount * 1 + bonus);
-					printf("Result: %d"\n, gState.coins);
+					printf("Result: %d\n", gState.coins);
 					
 					// Test Results
 					assertTrue(gState.coins, handCount * 1 + bonus);
