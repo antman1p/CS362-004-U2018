@@ -12,7 +12,7 @@
  *
  * unittestresults: unittest3.c dominion.o rngs.o
  *      gcc -o unittest3 -g  unittest3.c dominion.c rngs.c $(CFLAGS)
- *      ./unittest3 &> unittestresults.out
+ *      ./unittest3 >> unittestresults.out
  *
  * references: 
  * -----------------------------------------------------------------------
@@ -75,9 +75,31 @@ int failCnt = 0;
 			memset(&gState, 23, sizeof(struct gameState));  // Clear game state
 			gameInit = initializeGame(numPlayer, k, seed, &gState);  // Initialize a new game
 			
+			printf("\nInitial:\n");
+			printf("Expected: %d\n", player);
+			printf("Result: %d\n", gState.whoseTurn);
 			
 			
-			
+			printf("Ending Turn");
+			if (numPlayer == 4)
+			{
+				endTurn(&gState);
+				endTurn(&gState);
+				endTurn(&gState);
+				
+				printf("\nAfter Turns ended:\n");
+				printf("Expected: %d\n", 3);
+				printf("Result: %d\n", gState.whoseTurn);
+				assertTrue(gState.whoseTurn, 3);
+			}
+			else
+			{
+				endTurn(&gState);
+				printf("\nAfter Turns Ended:\n");
+				printf("Expected: %d\n", 1);
+				printf("Result: %d\n", gState.whoseTurn);
+				assertTrue(gState.whoseTurn, 1);
+			}
 			
 			// If Number of players is 4 then to test the upper edge case we 
 			// Need to increment player by more than 1 for this for loop

@@ -44,6 +44,7 @@ unittestresults: unittest1.c unittest2.c dominion.c rngs.c
 	gcov dominion.c
 	gcov unittest1.gcno >> unittestresults.out
 	gcov unittest2.gcno >> unittestresults.out
+	gcov unittest3.gcno >> unittestresults.out
 	gcov dominion.gcno >> unittestresults.out
 	
 interface.o: interface.h interface.c

@@ -12,7 +12,7 @@
  *
  * unittestresults: unittest2.c dominion.o rngs.o
  *      gcc -o unittest2 -g  unittest2.c dominion.c rngs.c $(CFLAGS)
- *      ./unittest2 &> unittestresults.out
+ *      ./unittest2 >> unittestresults.out
  *
  * references: 
  * -----------------------------------------------------------------------
@@ -82,14 +82,18 @@ int failCnt = 0;
 			intNumHandCards = numHandCards(&gState);
 			
 			
-			printf("NumHandCards: %d\n", intNumHandCards);
+			printf("\nNumHandCards:\n");
 			
 			if (player == 0)
 			{
+				printf("Expected: %d\n", 5);
+				printf("Result: %d\n", intNumHandCards);
 				assertTrue(intNumHandCards, 5);
 			}
 			else
 			{
+				printf("Expected: %d\n", 5);
+				printf("Result: %d\n", intNumHandCards);
 				assertTrue(intNumHandCards, 0);
 			}
 			
@@ -110,8 +114,9 @@ int failCnt = 0;
 			
 			intNumHandCards = numHandCards(&gState);
 			
-			
-			printf("NumHandCards: %d\n", intNumHandCards);
+			printf("\nNumHandCards:\n");
+			printf("Expected: %d\n", 5);
+			printf("Result: %d\n", intNumHandCards);
 			
 			assertTrue(intNumHandCards, 5);
 			
