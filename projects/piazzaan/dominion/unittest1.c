@@ -80,7 +80,7 @@ int failCnt = 0;
 		for (handCount = 0; handCount <= maxHandCount; handCount = maxHandCount)
 		{
 			// Loop through bonuses
-			for (bonus = 1; bonus <= maxBonus; bonus = maxBonus)
+			for (bonus = 1; bonus <= maxBonus; bonus+=9)
 			{
 				printf("\n\nPlayer: %d\n", player + 1);
 				printf("Hand Count: %d\n", handCount);
