@@ -51,7 +51,7 @@ int failCnt = 0;
  // Main function
  int main()
  {
-	int i, gameInit, numPlayer;
+	int i, gameInit, numPlayer, intNumHandCards;
 	int maxPlayer = 4;
 	int seed = 1000;
 	int k[10] = {adventurer, council_room, feast, gardens, mine
@@ -62,10 +62,34 @@ int failCnt = 0;
  
 	printf ("\n---------------------------------------------------\nTESTING numHandCards():\n---------------------------------------------------");
 	
+	
+	// Loop through edge cases of number of players 2 and 4
 	for(numPlayer = 2; numPlayer <= maxPlayer; numPlayer += 2)
 	{
-		memset(&gState, 23, sizeof(struct gameState));  // Clear game state
-		gameInit = initializeGame(numPlayer, k, seed, &gState);  // Initialize a new game
+		// Loop through players
+		for (player = 0; player < numPlayer; player++)
+		{
+			printf("\n\n---------------------------------------------------\nNumber of players: %d\n", numPlayer);
+			printf("Player: %d\n", player + 1);
+					
+			memset(&gState, 23, sizeof(struct gameState));  // Clear game state
+			gameInit = initializeGame(numPlayer, k, seed, &gState);  // Initialize a new game
+			
+			
+			gState.whoseTurn = player;  // Set turn to current player
+			
+			intNumHandCards = numHandCards(&gState);
+			
+			//DEBUG
+			printf("NumHandCards: %d\n", intNumHandCards);
+			
+			// If Number of players is 4 then to test the upper edge case we 
+			// Need to increment player by more than 1 for this for loop
+			if (numPlayer == 4) 
+			{
+				player += 2;
+			}
+		}
 	}
 	
 }

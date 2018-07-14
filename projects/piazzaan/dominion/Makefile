@@ -21,15 +21,24 @@ testBuyCard: testDrawCard.c dominion.o rngs.o
 testAll: dominion.o testSuite.c
 	gcc -o testSuite testSuite.c -g  dominion.o rngs.o $(CFLAGS)
 	
-unittestresults: unittest1.c dominion.c rngs.c
-	gcc -o unittestresults -g  unittest1.c dominion.c rngs.c $(CFLAGS)
+unittestresults: unittest1.c unittest2.c dominion.c rngs.c
 	echo "Result for running Dominion test suit:" > unittestresults.out
 	
-	echo "unittest1.c:" >> unittestresults.out
-	./unittestresults >> unittestresults.out
+	echo "unittest1.c: " >> unittestresults.out
+	gcc -o unittest1 -g  unittest1.c dominion.c rngs.c $(CFLAGS)
+	./unittest1 >> unittestresults.out
 	gcov unittest1.c
+	
+	
+	echo "unittest2.c:" >> unittestresults.out
+	gcc -o unittest2 -g unittest2.c dominion.c rngs.c $(CFLAGS)
+	./unittest2 >> unittestresults.out
+	gcov unittest2.c
+	
+	
 	gcov dominion.c
 	gcov unittest1.gcno >> unittestresults.out
+	gcov unittest2.gcno >> unittestresults.out
 	gcov dominion.gcno >> unittestresults.out
 	
 interface.o: interface.h interface.c
