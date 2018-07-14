@@ -88,6 +88,10 @@ int failCnt = 0;
 				
 				memset(&gState, 23, sizeof(struct gameState));  // Clear game state
 				gameInit = initializeGame(numPlayer, k, seed, &gState);  // Initialize a new game
+				
+				
+				
+				// Fill hand with copper
 				memcpy(gState.hand[player], coppers, sizeof(int) * handCount);  // Set all cards to copper
 				
 				// Call updateCoins() function
@@ -102,12 +106,7 @@ int failCnt = 0;
 				
 				
 				
-				printf("\nPlayer: %d\n", player);
-				printf("Hand Count: %d\n", handCount);
-				printf("Bonus: %d\n", bonus);
-				
-				memset(&gState, 23, sizeof(struct gameState));  // Clear game state
-				gameInit = initializeGame(numPlayer, k, seed, &gState);  // Initialize a new game
+				// Fill hand with silver
 				memcpy(gState.hand[player], silvers, sizeof(int) * handCount);  // Set all cards to silver
 				
 				// Call updateCoins() function
@@ -121,12 +120,8 @@ int failCnt = 0;
 				assertTrue(gState.coins, handCount * 1 + bonus);
 				
 				
-				printf("\nPlayer: %d\n", player);
-				printf("Hand Count: %d\n", handCount);
-				printf("Bonus: %d\n", bonus);
 				
-				memset(&gState, 23, sizeof(struct gameState));  // Clear game state
-				gameInit = initializeGame(numPlayer, k, seed, &gState);  // Initialize a new game
+				// Fill hand with gold
 				memcpy(gState.hand[player], golds, sizeof(int) * handCount);  // Set all cards to gold
 				
 				// Call updateCoins() function
