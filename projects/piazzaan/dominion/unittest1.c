@@ -11,8 +11,8 @@
  * Include the following lines in your makefile:
  *
  * unittestresults: unittest1.c dominion.o rngs.o
- *      gcc -o unittestresults -g  unittest1.c dominion.o rngs.o $(CFLAGS)
- *      ./unittestresults &> unittestresults.out
+ *      gcc -o unittest1 -g  unittest1.c dominion.o rngs.o $(CFLAGS)
+ *      ./unittest1 &> unittestresults.out
  *
  * references: https://instructure-uploads.s3.amazonaws.com/account_10020000000097009/attachments/57943997/testUpdateCoins.c?response-content-disposition=inline%3B%20filename%3D%22testUpdateCoins.c%22%3B%20filename%2A%3DUTF-8%27%27testUpdateCoins.c&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJDW777BLV26JM2MQ%2F20180713%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20180713T230229Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=2214574dced4a3ea9ba53a11edad366aab41c4d203b5efb1df63de53855ed76d
  * -----------------------------------------------------------------------

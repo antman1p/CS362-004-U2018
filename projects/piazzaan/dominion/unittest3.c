@@ -1,18 +1,18 @@
 /*
  * -----------------------------------------------------------------------
- * unittest2.c
+ * unittest3.c
  * CS 362_400
  * Antonio Piazza
  * piazzaan
  * 7/15/2108
  * 
- * Unit test 2 for Dominion function numHandCards()
+ * Unit test 3 for Dominion function XXXXXXXXXX()
  * 
  * Include the following lines in your makefile:
  *
- * unittestresults: unittest2.c dominion.o rngs.o
- *      gcc -o unittest2 -g  unittest2.c dominion.c rngs.c $(CFLAGS)
- *      ./unittest2 &> unittestresults.out
+ * unittestresults: unittest3.c dominion.o rngs.o
+ *      gcc -o unittest3 -g  unittest3.c dominion.c rngs.c $(CFLAGS)
+ *      ./unittest3 &> unittestresults.out
  *
  * references: 
  * -----------------------------------------------------------------------
@@ -51,7 +51,7 @@ int failCnt = 0;
  // Main function
  int main()
  {
-	int player, gameInit, numPlayer, intNumHandCards;
+	int player, gameInit, numPlayer;
 	int maxPlayer = 4;
 	int seed = 1000;
 	int k[10] = {adventurer, council_room, feast, gardens, mine
@@ -60,7 +60,7 @@ int failCnt = 0;
 
 
  
-	printf ("\n---------------------------------------------------\nTESTING numHandCards():\n---------------------------------------------------");
+	printf ("\n---------------------------------------------------\nTESTING XXXXXXXXXX():\n---------------------------------------------------");
 	
 	
 	// Loop through edge cases of number of players 2 and 4
@@ -76,44 +76,7 @@ int failCnt = 0;
 			gameInit = initializeGame(numPlayer, k, seed, &gState);  // Initialize a new game
 			
 			
-			gState.whoseTurn = player;  // Set turn to current player
 			
-			// call the numHandCards function
-			intNumHandCards = numHandCards(&gState);
-			
-			
-			printf("NumHandCards: %d\n", intNumHandCards);
-			
-			if (player == 0)
-			{
-				assertTrue(intNumHandCards, 5);
-			}
-			else
-			{
-				assertTrue(intNumHandCards, 0);
-			}
-			
-			
-			// End turns to go to from the first to the last player's turn
-			printf("\nEnding turns\n\n");
-			
-			if (numPlayer == 4)
-			{
-				endTurn(&gState);
-				endTurn(&gState);
-				endTurn(&gState);
-			}
-			else
-			{
-				endTurn(&gState);
-			}
-			
-			intNumHandCards = numHandCards(&gState);
-			
-			
-			printf("NumHandCards: %d\n", intNumHandCards);
-			
-			assertTrue(intNumHandCards, 5);
 			
 			
 			// If Number of players is 4 then to test the upper edge case we 
