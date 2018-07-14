@@ -83,6 +83,29 @@ int failCnt = 0;
 			//DEBUG
 			printf("NumHandCards: %d\n", intNumHandCards);
 			
+			
+			// End turns to go to from the first to the last player's turn
+			printf("\nEnding turns\n\n");
+			
+			if (numPlayer == 4)
+			{
+				endTurn(&gState);
+				endTurn(&gState);
+				endTurn(&gState);
+			}
+			else
+			{
+				endTurn(&gState);
+			}
+			
+			intNumHandCards = numHandCards(&gState);
+			
+			//DEBUG
+			printf("NumHandCards: %d\n", intNumHandCards);
+			
+			
+			
+			
 			// If Number of players is 4 then to test the upper edge case we 
 			// Need to increment player by more than 1 for this for loop
 			if (numPlayer == 4) 
