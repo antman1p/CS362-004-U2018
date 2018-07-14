@@ -88,7 +88,7 @@ int failCnt = 0;
 				// Loop through bonuses
 				for (bonus = 1; bonus <= maxBonus; bonus+=9)
 				{
-					printf("\n\n---------------------------------------------------Number of players: %d\n", numPlayer");
+					printf("\n\n---------------------------------------------------Number of players: %d\n", numPlayer);
 					printf("Player: %d\n", player + 1);
 					printf("Hand Count: %d\n", handCount);
 					printf("Bonus: %d\n", bonus);
@@ -144,6 +144,7 @@ int failCnt = 0;
 
 				}
 			}
+			
 			// If Number of players is 4 then to test the upper edge case we 
 			// Need to increment player by more than 1 for this for loop
 			if (numPlayer == 4) 
