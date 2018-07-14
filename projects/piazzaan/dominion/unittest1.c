@@ -39,11 +39,11 @@ int failCnt = 0;
  {
 	if (int1 == int2) 
 	{
-		printf("Test Passed\n---------------------------------------------------\n");
+		printf("Test Passed\n");
 	} 
 	else
 	{
-		printf("Test Failed\n---------------------------------------------------\n");
+		printf("Test Failed\n");
 		failCnt++;
 	}
  }
@@ -72,7 +72,7 @@ int failCnt = 0;
         golds[i] = gold;
     }
  
-	printf ("\n---------------------------------------------------\nTESTING updateCoins():");
+	printf ("\n---------------------------------------------------\nTESTING updateCoins():\n---------------------------------------------------");
 	
 	// Test the updateCoins function for each treasure, player and with different bonuses
 	// and hand counts.
@@ -85,7 +85,7 @@ int failCnt = 0;
 			// Loop through bonuses
 			for (bonus = 1; bonus <= maxBonus; bonus+=9)
 			{
-				printf("\n\nPlayer: %d\n", player + 1);
+				printf("\n\n---------------------------------------------------\nPlayer: %d\n", player + 1);
 				printf("Hand Count: %d\n", handCount);
 				printf("Bonus: %d\n", bonus);
 				
@@ -150,11 +150,11 @@ int failCnt = 0;
 	 */
 	if (failCnt)  // If the counter is greater than 0 print fail message
 	{
-		printf("\nTEST FAILED\n");
+		printf("\n---------------------------------------------------\nTEST FAILED\n---------------------------------------------------\n\n");
 	}
 	else          // Else all tests pass, print pass message
 	{
-		printf("\n---------------------------------------------------\nTEST SUCCESSFULLY COMPLETED\n\n");
+		printf("\n---------------------------------------------------\nTEST SUCCESSFULLY COMPLETED\n---------------------------------------------------\n\n");
 	}
 	  
 	return 0;
