@@ -51,11 +51,11 @@ int failCnt = 0;
  // Main function
  int main()
  {
-	int i, player, bonus, handCount, gameInit;
+	int i, player, bonus, handCount, gameInit, numPlayer;
+	int maxPlayer = 4;
 	int maxHandCount = 5;
 	int maxBonus = 10;
 	int seed = 1000;
-	int numPlayer = 2;
 	int k[10] = {adventurer, council_room, feast, gardens, mine
 		, remodel, smithy, village, baron, great_hall};
 	struct gameState gState;
@@ -75,72 +75,83 @@ int failCnt = 0;
 	
 	// Test the updateCoins function for each treasure, player and with different bonuses
 	// and hand counts.
-	// Loop through players
-	for (player = 0; player < numPlayer; player++)
+	
+	// Loop through edge cases of number of players 2 and 4
+	for(numPlayer = 2; numPlayer <= maxPlayer; numPlayer += 2)
 	{
-		// Loop through hand count
-		for (handCount = 0; handCount <= maxHandCount; handCount+=5)
+		// Loop through players
+		for (player = 0; player < numPlayer; player++)
 		{
-			// Loop through bonuses
-			for (bonus = 1; bonus <= maxBonus; bonus+=9)
+			// Loop through hand count
+			for (handCount = 0; handCount <= maxHandCount; handCount+=5)
 			{
-				printf("\n\n---------------------------------------------------\nPlayer: %d\n", player + 1);
-				printf("Hand Count: %d\n", handCount);
-				printf("Bonus: %d\n", bonus);
-				
-				memset(&gState, 23, sizeof(struct gameState));  // Clear game state
-				gameInit = initializeGame(numPlayer, k, seed, &gState);  // Initialize a new game
-				gState.handCount[player] = handCount;
-				
-				
-				
-				// Fill hand with copper
-				memcpy(gState.hand[player], coppers, sizeof(int) * handCount);  // Set all cards to copper
-				
-				// Call updateCoins() function
-				updateCoins(player, &gState, bonus);
-				
-				printf("\nCopper Coin Count\n");
-				printf("Expected: %d\n", handCount*1+bonus);
-				printf("Result: %d\n", gState.coins);
-				
-				// Test Results
-				assertTrue(gState.coins, handCount*1+bonus);
-				
-				
-				
-				// Fill hand with silver
-				memcpy(gState.hand[player], silvers, sizeof(int) * handCount);  // Set all cards to silver
-				
-				// Call updateCoins() function
-				updateCoins(player, &gState, bonus);
-				
-				printf("\nSilver Coin Count\n");
-				printf("Expected: %d\n", handCount*2+bonus);
-				printf("Result: %d\n", gState.coins);
-				
-				// Test Results
-				assertTrue(gState.coins, handCount*2+bonus);
-				
-				
-				
-				// Fill hand with gold
-				memcpy(gState.hand[player], golds, sizeof(int) * handCount);  // Set all cards to gold
-				
-				// Call updateCoins() function
-				updateCoins(player, &gState, bonus);
-				
-				printf("\nGold Coin Count\n");
-				printf("Expected: %d\n", handCount*3+bonus);
-				printf("Result: %d\n", gState.coins);
-				
-				// Test Results
-				assertTrue(gState.coins, handCount*3+bonus);
+				// Loop through bonuses
+				for (bonus = 1; bonus <= maxBonus; bonus+=9)
+				{
+					printf("\n\n---------------------------------------------------Number of players: %d\n", numPlayer");
+					printf("Player: %d\n", player + 1);
+					printf("Hand Count: %d\n", handCount);
+					printf("Bonus: %d\n", bonus);
+					
+					memset(&gState, 23, sizeof(struct gameState));  // Clear game state
+					gameInit = initializeGame(numPlayer, k, seed, &gState);  // Initialize a new game
+					gState.handCount[player] = handCount;
+					
+					
+					
+					// Fill hand with copper
+					memcpy(gState.hand[player], coppers, sizeof(int) * handCount);  // Set all cards to copper
+					
+					// Call updateCoins() function
+					updateCoins(player, &gState, bonus);
+					
+					printf("\nCopper Coin Count\n");
+					printf("Expected: %d\n", handCount*1+bonus);
+					printf("Result: %d\n", gState.coins);
+					
+					// Test Results
+					assertTrue(gState.coins, handCount*1+bonus);
+					
+					
+					
+					// Fill hand with silver
+					memcpy(gState.hand[player], silvers, sizeof(int) * handCount);  // Set all cards to silver
+					
+					// Call updateCoins() function
+					updateCoins(player, &gState, bonus);
+					
+					printf("\nSilver Coin Count\n");
+					printf("Expected: %d\n", handCount*2+bonus);
+					printf("Result: %d\n", gState.coins);
+					
+					// Test Results
+					assertTrue(gState.coins, handCount*2+bonus);
+					
+					
+					
+					// Fill hand with gold
+					memcpy(gState.hand[player], golds, sizeof(int) * handCount);  // Set all cards to gold
+					
+					// Call updateCoins() function
+					updateCoins(player, &gState, bonus);
+					
+					printf("\nGold Coin Count\n");
+					printf("Expected: %d\n", handCount*3+bonus);
+					printf("Result: %d\n", gState.coins);
+					
+					// Test Results
+					assertTrue(gState.coins, handCount*3+bonus);
 
+				}
+			}
+			// If Number of players is 4 then to test the upper edge case we 
+			// Need to increment player by more than 1 for this for loop
+			if (numPlayer == 4) 
+			{
+				player += 2;
 			}
 		}
 	}
-	
 	
  
 	/* 
