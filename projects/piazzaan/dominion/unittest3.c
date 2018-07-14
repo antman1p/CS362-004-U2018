@@ -146,7 +146,7 @@ int failCnt = 0;
 			printf("Result: %d\n", gState.outpostPlayed);
 			assertTrue(gState.outpostPlayed,0);
 			
-			printf("\nPhase\n: %d\n");
+			printf("\nPhase: %d\n");
 			printf("Expected: %d\n", 0);
 			printf("Result: %d\n", gState.phase);
 		    assertTrue(gState.phase,0);
@@ -157,9 +157,9 @@ int failCnt = 0;
 		    assertTrue(gState.numActions,1);
 			
 			printf("\nCoins:\n");
-			printf("Expected: %d\n", 0);
+			printf("Expected: %d\n", 3);
 			printf("Result: %d\n", gState.coins);
-		    assertTrue(gState.coins,0);
+		    assertTrue(gState.coins,3);
 			
 			printf("\nNumBuys:\n");
 			printf("Expected: %d\n", 1);
@@ -172,9 +172,9 @@ int failCnt = 0;
 		    assertTrue(gState.playedCardCount,0);
 			
 			printf("\nHandCount:\n");
-			printf("Expected: %d\n", 0);
+			printf("Expected: %d\n", 5);
 			printf("Result: %d\n", gState.handCount[gState.whoseTurn]);
-		    assertTrue(gState.handCount[gState.whoseTurn],0);
+		    assertTrue(gState.handCount[gState.whoseTurn],5);
 		}
 	}
 	
