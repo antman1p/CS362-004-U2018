@@ -90,6 +90,7 @@ int failCnt = 0;
 				
 				memset(&gState, 23, sizeof(struct gameState));  // Clear game state
 				gameInit = initializeGame(numPlayer, k, seed, &gState);  // Initialize a new game
+				gState.handCount[player] = handCount;
 				
 				
 				
@@ -99,7 +100,7 @@ int failCnt = 0;
 				// Call updateCoins() function
 				updateCoins(player, &gState, bonus);
 				
-				printf("\nCoin Count minus coppers\n");
+				printf("\nCopper Coin Count\n");
 				printf("Expected: %d\n", handCount*1+bonus);
 				printf("Result: %d\n", gState.coins);
 				
@@ -114,7 +115,7 @@ int failCnt = 0;
 				// Call updateCoins() function
 				updateCoins(player, &gState, bonus);
 				
-				printf("\nCoin Count minus silvers\n");
+				printf("\nSilver Coin Count\n");
 				printf("Expected: %d\n", handCount*2+bonus);
 				printf("Result: %d\n", gState.coins);
 				
@@ -129,7 +130,7 @@ int failCnt = 0;
 				// Call updateCoins() function
 				updateCoins(player, &gState, bonus);
 				
-				printf("\nCoin Count minus golds\n");
+				printf("\nGold Coin Count\n");
 				printf("Expected: %d\n", handCount*3+bonus);
 				printf("Result: %d\n", gState.coins);
 				
