@@ -35,16 +35,23 @@ unittestresults: unittest1.c unittest2.c dominion.c rngs.c
 	./unittest2 >> unittestresults.out
 	gcov unittest2.c
 	
+	
 	echo "unittest3.c:" >> unittestresults.out
 	gcc -o unittest3 -g unittest3.c dominion.c rngs.c $(CFLAGS)
 	./unittest3 >> unittestresults.out
 	gcov unittest3.c
+	
+	echo "unittest4.c:" >> unittestresults.out
+	gcc -o unittest4 -g unittest4.c dominion.c rngs.c $(CFLAGS)
+	./unittest4 >> unittestresults.out
+	gcov unittest4.c
 	
 	
 	gcov dominion.c
 	gcov unittest1.gcno >> unittestresults.out
 	gcov unittest2.gcno >> unittestresults.out
 	gcov unittest3.gcno >> unittestresults.out
+	gcov unittest4.gcno >> unittestresults.out
 	gcov dominion.gcno >> unittestresults.out
 	
 interface.o: interface.h interface.c
