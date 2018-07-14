@@ -6,7 +6,7 @@
  * piazzaan
  * 7/15/2108
  * 
- * Unit test 4 for Dominion function XXXXXXXXXX()
+ * Unit test 4 for Dominion function whoseTurn()
  * 
  * Include the following lines in your makefile:
  *
@@ -51,7 +51,7 @@ int failCnt = 0;
  // Main function
  int main()
  {
-	int player, gameInit, numPlayer;
+	int player, gameInit, numPlayer, intWhoseTurn;
 	int maxPlayer = 4;
 	int seed = 1000;
 	int k[10] = {adventurer, council_room, feast, gardens, mine
@@ -60,7 +60,7 @@ int failCnt = 0;
 
 
  
-	printf ("\n---------------------------------------------------\nTESTING XXXXXXXXXX():\n---------------------------------------------------");
+	printf ("\n---------------------------------------------------\nTESTING whoseTurn():\n---------------------------------------------------");
 	
 	
 	// Loop through edge cases of number of players 2 and 4
@@ -75,6 +75,76 @@ int failCnt = 0;
 			memset(&gState, 23, sizeof(struct gameState));  // Clear game state
 			gameInit = initializeGame(numPlayer, k, seed, &gState);  // Initialize a new game
 			
+			if (player == 1) 
+			{
+				endTurn(&gState);
+			}
+			if (player == 3)
+			{
+				endTurn(&gState);
+				endTurn(&gState);
+				endTurn(&gState)
+				
+				
+			// Call whosTurn() function
+			intWhoseTurn = whoseTurn(&gState)
+			printf("\nInitial Who's Turn\n");
+			printf("Expected: %d\n", player);
+			printf("Result: %d\n", intWhoseTurn);	
+			// Test Results
+			assertTrue(intWhoseTurn, 0);
+			
+			
+			printf("\nEnding Turn\n");
+			if (numPlayer == 4)
+			{
+				
+				if (player == 0)
+				{
+					endTurn(&gState);
+					endTurn(&gState);
+					endTurn(&gState);
+					
+					// Call whosTurn() function
+					intWhoseTurn = whoseTurn(&gState)
+					printf("\nAfter Turns ended(Go Back to first Player):\n");
+					printf("Expected: %d\n", 3);
+					printf("Result: %d\n", intWhoseTurn);	
+					// Test Results
+					assertTrue(intWhoseTurn, 3);
+				}
+				else
+				{
+					endTurn(&gState);
+					intWhoseTurn = whoseTurn(&gState)
+					printf("\nAfter Turns ended(Go Back to first Player):\n");
+					printf("Expected: %d\n", 0);
+					printf("Result: %d\n", intWhoseTurn);
+					assertTrue(intWhoseTurn, 0);
+				}
+			}
+			else
+			{
+				endTurn(&gState);
+				if (player == 0)
+				{
+					intWhoseTurn = whoseTurn(&gState)
+					printf("\nAfter Turns Ended:\n");
+					printf("Expected: %d\n", 1);
+					printf("Result: %d\n", intWhoseTurn);
+					assertTrue(intWhoseTurn, 1);
+				}
+				else
+				{
+					intWhoseTurn = whoseTurn(&gState)
+					printf("\nAfter Turns ended(Go Back to first Player):\n");
+					printf("Expected: %d\n", 0);
+					printf("Result: %d\n", intWhoseTurn);
+					assertTrue(intWhoseTurn, 0);
+				}
+			}
+			
+					
 			
 			
 			// If Number of players is 4 then to test the upper edge case we 
