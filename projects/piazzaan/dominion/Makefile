@@ -27,10 +27,11 @@ unittestresults: unittest1.c dominion.c rngs.c
 	
 	echo "unittest1.c:" >> unittestresults.out
 	./unittestresults >> unittestresults.out
-	gcov unittest1.c >> unittestresults.out
-	gcov dominion.c >> unittestresults.out
-	cat dominion.c.gcov >> unittestresults.out
-
+	gcov unittest1.c
+	gcov dominion.c
+	gcov unittest1.gcno >> unittestresults.out
+	gcov dominion.gcno >> unittestresults.out
+	
 interface.o: interface.h interface.c
 	gcc -c interface.c -g  $(CFLAGS)
 
