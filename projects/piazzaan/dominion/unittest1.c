@@ -77,7 +77,7 @@ int failCnt = 0;
 	for (player = 0; player < numPlayer; player++)
 	{
 		// Loop through hand count
-		for (handCount = 0; handCount <= maxHandCount; handCount = maxHandCount)
+		for (handCount = 0; handCount <= maxHandCount; handCount+=5)
 		{
 			// Loop through bonuses
 			for (bonus = 1; bonus <= maxBonus; bonus+=9)
