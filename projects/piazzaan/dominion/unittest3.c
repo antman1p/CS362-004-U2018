@@ -94,12 +94,13 @@ int failCnt = 0;
 			printf("\nEnding Turn\n");
 			if (numPlayer == 4)
 			{
-				endTurn(&gState);
-				endTurn(&gState);
-				endTurn(&gState);
 				
 				if (player == 0)
 				{
+					endTurn(&gState);
+					endTurn(&gState);
+					endTurn(&gState);
+					
 					printf("\nAfter Turns ended:\n");
 					printf("Expected: %d\n", 3);
 					printf("Result: %d\n", gState.whoseTurn);
@@ -107,7 +108,8 @@ int failCnt = 0;
 				}
 				else
 				{
-					printf("\nAfter Turns ended(Go Back to first PLayer):\n");
+					endTurn(&gState);
+					printf("\nAfter Turns ended(Go Back to first Player):\n");
 					printf("Expected: %d\n", 0);
 					printf("Result: %d\n", gState.whoseTurn);
 					assertTrue(gState.whoseTurn, 0);
