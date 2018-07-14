@@ -57,8 +57,6 @@ int failCnt = 0;
 	int k[10] = {adventurer, council_room, feast, gardens, mine
 		, remodel, smithy, village, baron, great_hall};
 	struct gameState gState;
-	
-	char treasures[8];
 
 	int coppers[MAX_HAND];
     int silvers[MAX_HAND];
@@ -84,44 +82,62 @@ int failCnt = 0;
 			// Loop through bonuses
 			for (bonus = 0; bonus <= maxBonus; bonus++)
 			{
-				// Loop for each of the 3 treasure types
-				for (j =0; j < 3; j++)
-				{
-					// Set treasures char array to NULL
-					memset(&treasures[0], 0, sizeof(treasures));
-					
-					// Change treasure type based of loop iteration
-					if (j = 0)
-					{
-						stpcpy(treasures, "coppers");
-					}
-					else if (j = 1)
-					{
-						stpcpy(treasures, "silvers");
-					}
-					else
-					{
-						stpcpy(treasures, "golds");
-					}
-					
-					printf("\nPlayer: %d\n", player);
-					printf("Hand Count: %d\n", handCount);
-					printf("Bonus: %d\n", bonus);
-					
-					memset(&gState, 23, sizeof(struct gameState));  // Clear game state
-					gameInit = initializeGame(numPlayer, k, seed, &gState);  // Initialize a new game
-					memcpy(gState.hand[player], treasures, sizeof(int) * handCount);  // Set all cards to copper
-					
-					// Call updateCoins() function
-					updateCoins(player, &gState, bonus);
-					
-					printf("\nCoin Count minus %s\n", treasures);
-					printf("Expected: %d\n", handCount * 1 + bonus);
-					printf("Result: %d\n", gState.coins);
-					
-					// Test Results
-					assertTrue(gState.coins, handCount * 1 + bonus);
-				}
+				printf("\nPlayer: %d\n", player);
+				printf("Hand Count: %d\n", handCount);
+				printf("Bonus: %d\n", bonus);
+				
+				memset(&gState, 23, sizeof(struct gameState));  // Clear game state
+				gameInit = initializeGame(numPlayer, k, seed, &gState);  // Initialize a new game
+				memcpy(gState.hand[player], coppers, sizeof(int) * handCount);  // Set all cards to copper
+				
+				// Call updateCoins() function
+				updateCoins(player, &gState, bonus);
+				
+				printf("\nCoin Count minus coppers\n");
+				printf("Expected: %d\n", handCount * 1 + bonus);
+				printf("Result: %d\n", gState.coins);
+				
+				// Test Results
+				assertTrue(gState.coins, handCount * 1 + bonus);
+				
+				
+				
+				printf("\nPlayer: %d\n", player);
+				printf("Hand Count: %d\n", handCount);
+				printf("Bonus: %d\n", bonus);
+				
+				memset(&gState, 23, sizeof(struct gameState));  // Clear game state
+				gameInit = initializeGame(numPlayer, k, seed, &gState);  // Initialize a new game
+				memcpy(gState.hand[player], silvers, sizeof(int) * handCount);  // Set all cards to silver
+				
+				// Call updateCoins() function
+				updateCoins(player, &gState, bonus);
+				
+				printf("\nCoin Count minus silvers\n");
+				printf("Expected: %d\n", handCount * 1 + bonus);
+				printf("Result: %d\n", gState.coins);
+				
+				// Test Results
+				assertTrue(gState.coins, handCount * 1 + bonus);
+				
+				
+				printf("\nPlayer: %d\n", player);
+				printf("Hand Count: %d\n", handCount);
+				printf("Bonus: %d\n", bonus);
+				
+				memset(&gState, 23, sizeof(struct gameState));  // Clear game state
+				gameInit = initializeGame(numPlayer, k, seed, &gState);  // Initialize a new game
+				memcpy(gState.hand[player], golds, sizeof(int) * handCount);  // Set all cards to gold
+				
+				// Call updateCoins() function
+				updateCoins(player, &gState, bonus);
+				
+				printf("\nCoin Count minus golds\n");
+				printf("Expected: %d\n", handCount * 1 + bonus);
+				printf("Result: %d\n", gState.coins);
+				
+				// Test Results
+				assertTrue(gState.coins, handCount * 1 + bonus);
 
 			}
 		}
