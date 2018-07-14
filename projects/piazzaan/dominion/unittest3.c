@@ -91,25 +91,45 @@ int failCnt = 0;
 			printf("Result: %d\n", gState.whoseTurn);
 			assertTrue(gState.whoseTurn, player);
 			
-			printf("Ending Turn");
+			printf("\nEnding Turn\n");
 			if (numPlayer == 4)
 			{
 				endTurn(&gState);
 				endTurn(&gState);
 				endTurn(&gState);
 				
-				printf("\nAfter Turns ended:\n");
-				printf("Expected: %d\n", 3);
-				printf("Result: %d\n", gState.whoseTurn);
-				assertTrue(gState.whoseTurn, 3);
+				if (player == 0)
+				{
+					printf("\nAfter Turns ended:\n");
+					printf("Expected: %d\n", 3);
+					printf("Result: %d\n", gState.whoseTurn);
+					assertTrue(gState.whoseTurn, 3);
+				}
+				else
+				{
+					printf("\nAfter Turns ended(Go Back to first PLayer):\n");
+					printf("Expected: %d\n", 0);
+					printf("Result: %d\n", gState.whoseTurn);
+					assertTrue(gState.whoseTurn, 0);
+				}
 			}
 			else
 			{
 				endTurn(&gState);
-				printf("\nAfter Turns Ended:\n");
-				printf("Expected: %d\n", 1);
-				printf("Result: %d\n", gState.whoseTurn);
-				assertTrue(gState.whoseTurn, 1);
+				if (player == 0)
+				{
+					printf("\nAfter Turns Ended:\n");
+					printf("Expected: %d\n", 1);
+					printf("Result: %d\n", gState.whoseTurn);
+					assertTrue(gState.whoseTurn, 1);
+				}
+				else
+				{
+					printf("\nAfter Turns ended(Go Back to first PLayer):\n");
+					printf("Expected: %d\n", 0);
+					printf("Result: %d\n", gState.whoseTurn);
+					assertTrue(gState.whoseTurn, 0);
+				}
 			}
 			
 			// If Number of players is 4 then to test the upper edge case we 
