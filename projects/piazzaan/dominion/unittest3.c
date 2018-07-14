@@ -127,8 +127,7 @@ int failCnt = 0;
 				}
 				else
 				{
-					printf("\nAfter Turns ended(Go Back to first PL
-					layer):\n");
+					printf("\nAfter Turns ended(Go Back to first Player):\n");
 					printf("Expected: %d\n", 0);
 					printf("Result: %d\n", gState.whoseTurn);
 					assertTrue(gState.whoseTurn, 0);
