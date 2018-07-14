@@ -92,7 +92,7 @@ int failCnt = 0;
 			printf("Expected: %d\n", player);
 			printf("Result: %d\n", intWhoseTurn);	
 			// Test Results
-			assertTrue(intWhoseTurn, 0);
+			assertTrue(intWhoseTurn, player);
 			
 			
 			printf("\nEnding Turn\n");
