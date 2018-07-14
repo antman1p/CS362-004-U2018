@@ -83,7 +83,7 @@ int failCnt = 0;
 			{
 				endTurn(&gState);
 				endTurn(&gState);
-				endTurn(&gState)
+				endTurn(&gState);
 				
 				
 			// Call whosTurn() function
