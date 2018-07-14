@@ -72,7 +72,7 @@ int failCnt = 0;
         golds[i] = gold;
     }
  
-	printf ("TESTING updateCoins():\n");
+	printf ("\n______________________________________\nTESTING updateCoins():");
 	
 	// Test the updateCoins function for each treasure, player and with different bonuses
 	// and hand counts.
@@ -85,7 +85,7 @@ int failCnt = 0;
 			// Loop through bonuses
 			for (bonus = 1; bonus <= maxBonus; bonus+=9)
 			{
-				printf("\n\nPlayer: %d\n", player + 1);
+				printf("\n\n_____________________________________________\nPlayer: %d\n", player + 1);
 				printf("Hand Count: %d\n", handCount);
 				printf("Bonus: %d\n", bonus);
 				
