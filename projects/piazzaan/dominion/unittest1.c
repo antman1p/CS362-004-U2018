@@ -74,7 +74,7 @@ int failCnt = 0;
 	// Test the updateCoins function for each treasure, player and with different bonuses
 	// and hand counts.
 	// Loop through players
-	for (player = 0; player <= numPlayer; player++)
+	for (player = 0; player < numPlayer; player++)
 	{
 		// Loop through hand count
 		for (handCount = 1; handCount <= maxHandCount; handCount++)
