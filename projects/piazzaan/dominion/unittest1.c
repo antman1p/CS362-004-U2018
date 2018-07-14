@@ -20,6 +20,9 @@
 
 #include "dominion.h"
 #include <string.h>
+#include "dominion_helpers.h"
+#include <stdio.h>
+#include "rngs.h"
 
 
 // Variable to keep count of test fails
