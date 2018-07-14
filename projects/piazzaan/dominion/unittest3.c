@@ -75,10 +75,21 @@ int failCnt = 0;
 			memset(&gState, 23, sizeof(struct gameState));  // Clear game state
 			gameInit = initializeGame(numPlayer, k, seed, &gState);  // Initialize a new game
 			
+			if (player == 1) 
+			{
+				endTurn(&gState);
+			}
+			if (player == 3)
+			{
+				endTurn(&gState);
+				endTurn(&gState);
+				endTurn(&gState);
+			}
+			
 			printf("\nInitial:\n");
 			printf("Expected: %d\n", player);
 			printf("Result: %d\n", gState.whoseTurn);
-			
+			assertTrue(gState.whoseTurn, player);
 			
 			printf("Ending Turn");
 			if (numPlayer == 4)
