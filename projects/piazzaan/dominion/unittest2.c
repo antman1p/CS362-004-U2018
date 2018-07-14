@@ -92,9 +92,6 @@ int failCnt = 0;
 		}
 	}
 	
-}
-	
-	
  
 	/* 
 	 * Print “TEST SUCCESSFULLY COMPLETED” If and only if the entire test  
@@ -112,5 +109,5 @@ int failCnt = 0;
 	  
 	return 0;
 	  
- }
+}
   
