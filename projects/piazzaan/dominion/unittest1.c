@@ -49,7 +49,7 @@ int failCnt = 0;
  // Main function
  int main()
  {
-	int i, j, player, bonus, handCount, gameInit;
+	int i, player, bonus, handCount, gameInit;
 	int maxHandCount = 5;
 	int maxBonus = 10;
 	int seed = 1000;
@@ -74,7 +74,7 @@ int failCnt = 0;
 	// Test the updateCoins function for each treasure, player and with different bonuses
 	// and hand counts.
 	// Loop through players
-	for (player = 1; player <= numPlayer; player++)
+	for (player = 0; player <= numPlayer; player++)
 	{
 		// Loop through hand count
 		for (handCount = 1; handCount <= maxHandCount; handCount++)
@@ -82,7 +82,7 @@ int failCnt = 0;
 			// Loop through bonuses
 			for (bonus = 0; bonus <= maxBonus; bonus++)
 			{
-				printf("\nPlayer: %d\n", player);
+				printf("\n\nPlayer: %d\n", player + 1);
 				printf("Hand Count: %d\n", handCount);
 				printf("Bonus: %d\n", bonus);
 				
