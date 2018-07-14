@@ -51,7 +51,7 @@ int failCnt = 0;
  // Main function
  int main()
  {
-	int i, gameInit, numPlayer, intNumHandCards;
+	int player, gameInit, numPlayer, intNumHandCards;
 	int maxPlayer = 4;
 	int seed = 1000;
 	int k[10] = {adventurer, council_room, feast, gardens, mine
