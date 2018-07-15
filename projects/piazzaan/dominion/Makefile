@@ -46,12 +46,18 @@ unittestresults: unittest1.c unittest2.c dominion.c rngs.c
 	./unittest4 >> unittestresults.out
 	gcov unittest4.c
 	
+	unittestresults: cardtest1.c dominion.o rngs.o
+	gcc -o cardtest1 -g  cardtest1.c dominion.c rngs.c $(CFLAGS)
+	./cardtest1 >> unittestresults.out
+	gcov cardtest1.c
+	
 	
 	gcov dominion.c
 	gcov unittest1.gcno >> unittestresults.out
 	gcov unittest2.gcno >> unittestresults.out
 	gcov unittest3.gcno >> unittestresults.out
 	gcov unittest4.gcno >> unittestresults.out
+	gcov cardtest1.gnco >> unittestresults.out
 	gcov dominion.gcno >> unittestresults.out
 	
 interface.o: interface.h interface.c
