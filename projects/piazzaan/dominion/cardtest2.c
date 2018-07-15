@@ -1,19 +1,19 @@
 /*
  * -----------------------------------------------------------------------
- * cardtest1.c
+ * cardtest2.c
  * CS 362_400
  * Antonio Piazza
  * piazzaan
  * 7/15/2108
  * 
- * Card test 1 for Dominion Smithy card
+ * Card test 2 for Dominion Adventurer card
  * 
  * Include the following lines in your makefile:
  *
- * echo "cardtest1.c:" >> unittestresults.out
- * gcc -o cardtest1 -g  cardtest1.c dominion.c rngs.c $(CFLAGS)
- * ./cardtest1 >> unittestresults.out
- * gcov cardtest1.c
+ * echo "cardtest2.c:" >> unittestresults.out
+ * gcc -o cardtest2 -g  cardtest2.c dominion.c rngs.c $(CFLAGS)
+ * ./cardtest2 >> unittestresults.out
+ * gcov cardtest2.c
  *
  * references: 
  * -----------------------------------------------------------------------
@@ -52,7 +52,7 @@ int failCnt = 0;
  // Main function
  int main()
  {
-	int i;
+	int i,treasureNum, treasureNumOrig, card;
 	int numPlayer = 2;
 	int player1 = 0, handpos = 0, choice1 = 0, choice2 = 0, choice3 = 0, bonus = 0;
 	int player2 = 1;
@@ -65,7 +65,7 @@ int failCnt = 0;
 
 
  
-	printf ("\n---------------------------------------------------\nTESTING SMITHY CARD:\n---------------------------------------------------");
+	printf ("\n---------------------------------------------------\nTESTING Adventurer CARD:\n---------------------------------------------------");
 	
 	// Set Game State
 	memset(&gState,23,sizeof(struct gameState));
@@ -77,22 +77,49 @@ int failCnt = 0;
 	// copy the game state to the copy to preserve the game state
 	 memcpy(&copyGState, &gState, sizeof(struct gameState));
 	 
-	// call card effect function for Smithy
-	cardEffect(smithy, choice1, choice2, choice3, &gState, handpos, &bonus);
+	// call card effect function for Adventurer
+	cardEffect(adventurer, choice1, choice2, choice3, &gState, handpos, &bonus);
 	
 	
 	// Check Results
-	// Requirement:  Current player should receive exactly 3 cards
-	printf("\nPlayer 1 receives exactly 3 cards\n");
+	// Requirement:  Current player should receive exactly 2 treasure cards
+	printf("\nPlayer 1 receives exactly 2 treasure cards\n");
+	// Check original number of treasure cards in player 1's hand
+	for ( i = 0; i < copyGState.handCount[player1]; i++)
+	{
+		card = copyGState.hand[player1][i];
+		if (card == copper || card == silver || card == gold) 
+		{
+			treasureNumOrig++
+		}
+	}
+	
+	// Check new number of treasure cards in player 1's hand
+	for ( i = 0; i < gState.handCount[player1]; i++)
+	{
+		card = gState.hand[player1][i];
+		if (card == copper || card == silver || card == gold) 
+		{
+			treasureNum++
+		}
+	}
+	
+  
+	printf("Expected: %d\n", treasureNumOrig+2);
+	printf("Result: %d\n", treasureNum);
+	
+	// Test and make sure the new number of treasures in the hand is 2 more than the original
+	assertTrue(treasureNum, treasureNumOrig+2);
+	
+	
+
+	// Test hand count of player 1 increased by 2
+	printf("\nPlayer 1 hand count increased by exactly 2 \n");
 	printf("Expected: %d\n", copyGState.handCount[player1]+2);
 	printf("Result: %d\n", gState.handCount[player1]);
     assertTrue(gState.handCount[player1],copyGState.handCount[player1]+2);
 	
-	// Requirement:  The 3 cards should come from player's own pile.
-	printf("\nCard's come from Player 1's pile\n");
-	printf("Expected: %d\n", copyGState.deckCount[player1]-3);
-	printf("Result: %d\n", gState.deckCount[player1]);
-    assertTrue(gState.deckCount[player1],copyGState.deckCount[player1]-3);
+
 	
 	// Requirement: No state change should occur for other players.
 	printf("\nTest Player 2 was not effected\n");

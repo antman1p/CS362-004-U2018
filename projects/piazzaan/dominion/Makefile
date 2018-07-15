@@ -54,12 +54,19 @@ unittestresults: unittest1.c unittest2.c dominion.c rngs.c
 	gcov cardtest1.c
 	
 	
+	echo "cardtest2.c:" >> unittestresults.out
+    gcc -o cardtest2 -g  cardtest2.c dominion.c rngs.c $(CFLAGS)
+    ./cardtest2 >> unittestresults.out
+    gcov cardtest2.c
+	
+	
 	gcov dominion.c
 	gcov unittest1.gcno >> unittestresults.out
 	gcov unittest2.gcno >> unittestresults.out
 	gcov unittest3.gcno >> unittestresults.out
 	gcov unittest4.gcno >> unittestresults.out
 	gcov cardtest1.gnco >> unittestresults.out
+	gcov cardtest2.gnco >> unittestresults.out
 	gcov dominion.gcno >> unittestresults.out
 	
 interface.o: interface.h interface.c
