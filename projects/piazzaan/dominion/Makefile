@@ -74,16 +74,16 @@ unittestresults: unittest1.c unittest2.c dominion.c rngs.c
 	
 	
 	gcov dominion.c
-	gcov unittest1.gcno >> unittestresults.out
-	gcov unittest2.gcno >> unittestresults.out
-	gcov unittest3.gcno >> unittestresults.out
-	gcov unittest4.gcno >> unittestresults.out
-	gcov cardtest1.gnco >> unittestresults.out
-	gcov cardtest2.gnco >> unittestresults.out
-	gcov cardtest3.gnco >> unittestresults.out
-	gcov cardtest4.gnco >> unittestresults.out
+	gcov unittest1.c -b >> unittestresults.out
+	gcov unittest2.c -b >> unittestresults.out
+	gcov unittest3.c -b >> unittestresults.out
+	gcov unittest4.c -b >> unittestresults.out
+	gcov cardtest1.c -b >> unittestresults.out
+	gcov cardtest2.c -b >> unittestresults.out
+	gcov cardtest3.c -b >> unittestresults.out
+	gcov cardtest4.c -b >> unittestresults.out
 
-	gcov dominion.gcno >> unittestresults.out
+	gcov dominion.c -b >> unittestresults.out
 	
 interface.o: interface.h interface.c
 	gcc -c interface.c -g  $(CFLAGS)
