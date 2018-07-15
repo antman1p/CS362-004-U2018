@@ -70,7 +70,7 @@ int failCnt = 0;
 	memset(&copyGState,23,sizeof(struct gameState));
 	
 	// Initialize game
-	initializeGame(numbPlayers, k, seed, &gState);
+	initializeGame(numPlayer, k, seed, &gState);
 	
 	// copy the game state to the copy to preserve the game state
 	 memcpy(&copyGState, &gState, sizeof(struct gameState));
