@@ -52,7 +52,7 @@ int failCnt = 0;
  // Main function
  int main()
  {
-	int playerTurn, playerTurnAfterEnd;
+	int i, playerTurn, playerTurnAfterEnd;
 	int numPlayer = 2;
 	int player1 = 0, handpos = 0, choice1 = 0, choice2 = 0, choice3 = 0, bonus = 0;
 	int player2 = 1;
