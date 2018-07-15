@@ -60,7 +60,7 @@ int failCnt = 0;
 	int k[10] = {adventurer, council_room, feast, gardens, mine
 		, remodel, smithy, village, outpost, great_hall};
 		
-	const char* cardNames[10] = {"adventurer", "council_room", "feast", "gardens", "mine"
+	const char* cardNames[10][13] = {"adventurer", "council_room", "feast", "gardens", "mine"
 		, "remodel", "smithy", "village", "outpost", "great_hall"};
 		
 	// Initialize two game states
