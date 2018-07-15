@@ -90,7 +90,7 @@ int failCnt = 0;
 		card = copyGState.hand[player1][i];
 		if (card == copper || card == silver || card == gold) 
 		{
-			treasureNumOrig++
+			treasureNumOrig++;
 		}
 	}
 	
@@ -100,7 +100,7 @@ int failCnt = 0;
 		card = gState.hand[player1][i];
 		if (card == copper || card == silver || card == gold) 
 		{
-			treasureNum++
+			treasureNum++;
 		}
 	}
 	
