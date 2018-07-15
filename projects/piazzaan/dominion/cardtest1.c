@@ -84,7 +84,7 @@ int failCnt = 0;
 	printf("\nPlayer 1 receives exactly 3 cards\n");
 	printf("Expected: %d\n", copyGState.handCount[player0]+2);
 	printf("Result: %d\n", gState.handCount[player0]);
-    assertTrue(state.deckCount[player0],stateOriginal.deckCount[player0]+2);
+    assertTrue(state.deckCount[player0],copyGState.deckCount[player0]+2);
 	
 	
  
