@@ -1,0 +1,1312 @@
+Result for running Dominion test suit:
+unittest1.c: 
+
+---------------------------------------------------
+TESTING updateCoins():
+---------------------------------------------------
+
+---------------------------------------------------
+Number of players: 2
+Player: 1
+Hand Count: 0
+Bonus: 1
+
+Copper Coin Count
+Expected: 1
+Result: 1
+Test Passed
+
+Silver Coin Count
+Expected: 1
+Result: 1
+Test Passed
+
+Gold Coin Count
+Expected: 1
+Result: 1
+Test Passed
+
+
+---------------------------------------------------
+Number of players: 2
+Player: 1
+Hand Count: 0
+Bonus: 10
+
+Copper Coin Count
+Expected: 10
+Result: 10
+Test Passed
+
+Silver Coin Count
+Expected: 10
+Result: 10
+Test Passed
+
+Gold Coin Count
+Expected: 10
+Result: 10
+Test Passed
+
+
+---------------------------------------------------
+Number of players: 2
+Player: 1
+Hand Count: 5
+Bonus: 1
+
+Copper Coin Count
+Expected: 6
+Result: 6
+Test Passed
+
+Silver Coin Count
+Expected: 11
+Result: 11
+Test Passed
+
+Gold Coin Count
+Expected: 16
+Result: 16
+Test Passed
+
+
+---------------------------------------------------
+Number of players: 2
+Player: 1
+Hand Count: 5
+Bonus: 10
+
+Copper Coin Count
+Expected: 15
+Result: 15
+Test Passed
+
+Silver Coin Count
+Expected: 20
+Result: 20
+Test Passed
+
+Gold Coin Count
+Expected: 25
+Result: 25
+Test Passed
+
+
+---------------------------------------------------
+Number of players: 2
+Player: 2
+Hand Count: 0
+Bonus: 1
+
+Copper Coin Count
+Expected: 1
+Result: 1
+Test Passed
+
+Silver Coin Count
+Expected: 1
+Result: 1
+Test Passed
+
+Gold Coin Count
+Expected: 1
+Result: 1
+Test Passed
+
+
+---------------------------------------------------
+Number of players: 2
+Player: 2
+Hand Count: 0
+Bonus: 10
+
+Copper Coin Count
+Expected: 10
+Result: 10
+Test Passed
+
+Silver Coin Count
+Expected: 10
+Result: 10
+Test Passed
+
+Gold Coin Count
+Expected: 10
+Result: 10
+Test Passed
+
+
+---------------------------------------------------
+Number of players: 2
+Player: 2
+Hand Count: 5
+Bonus: 1
+
+Copper Coin Count
+Expected: 6
+Result: 6
+Test Passed
+
+Silver Coin Count
+Expected: 11
+Result: 11
+Test Passed
+
+Gold Coin Count
+Expected: 16
+Result: 16
+Test Passed
+
+
+---------------------------------------------------
+Number of players: 2
+Player: 2
+Hand Count: 5
+Bonus: 10
+
+Copper Coin Count
+Expected: 15
+Result: 15
+Test Passed
+
+Silver Coin Count
+Expected: 20
+Result: 20
+Test Passed
+
+Gold Coin Count
+Expected: 25
+Result: 25
+Test Passed
+
+
+---------------------------------------------------
+Number of players: 4
+Player: 1
+Hand Count: 0
+Bonus: 1
+
+Copper Coin Count
+Expected: 1
+Result: 1
+Test Passed
+
+Silver Coin Count
+Expected: 1
+Result: 1
+Test Passed
+
+Gold Coin Count
+Expected: 1
+Result: 1
+Test Passed
+
+
+---------------------------------------------------
+Number of players: 4
+Player: 1
+Hand Count: 0
+Bonus: 10
+
+Copper Coin Count
+Expected: 10
+Result: 10
+Test Passed
+
+Silver Coin Count
+Expected: 10
+Result: 10
+Test Passed
+
+Gold Coin Count
+Expected: 10
+Result: 10
+Test Passed
+
+
+---------------------------------------------------
+Number of players: 4
+Player: 1
+Hand Count: 5
+Bonus: 1
+
+Copper Coin Count
+Expected: 6
+Result: 6
+Test Passed
+
+Silver Coin Count
+Expected: 11
+Result: 11
+Test Passed
+
+Gold Coin Count
+Expected: 16
+Result: 16
+Test Passed
+
+
+---------------------------------------------------
+Number of players: 4
+Player: 1
+Hand Count: 5
+Bonus: 10
+
+Copper Coin Count
+Expected: 15
+Result: 15
+Test Passed
+
+Silver Coin Count
+Expected: 20
+Result: 20
+Test Passed
+
+Gold Coin Count
+Expected: 25
+Result: 25
+Test Passed
+
+
+---------------------------------------------------
+Number of players: 4
+Player: 4
+Hand Count: 0
+Bonus: 1
+
+Copper Coin Count
+Expected: 1
+Result: 1
+Test Passed
+
+Silver Coin Count
+Expected: 1
+Result: 1
+Test Passed
+
+Gold Coin Count
+Expected: 1
+Result: 1
+Test Passed
+
+
+---------------------------------------------------
+Number of players: 4
+Player: 4
+Hand Count: 0
+Bonus: 10
+
+Copper Coin Count
+Expected: 10
+Result: 10
+Test Passed
+
+Silver Coin Count
+Expected: 10
+Result: 10
+Test Passed
+
+Gold Coin Count
+Expected: 10
+Result: 10
+Test Passed
+
+
+---------------------------------------------------
+Number of players: 4
+Player: 4
+Hand Count: 5
+Bonus: 1
+
+Copper Coin Count
+Expected: 6
+Result: 6
+Test Passed
+
+Silver Coin Count
+Expected: 11
+Result: 11
+Test Passed
+
+Gold Coin Count
+Expected: 16
+Result: 16
+Test Passed
+
+
+---------------------------------------------------
+Number of players: 4
+Player: 4
+Hand Count: 5
+Bonus: 10
+
+Copper Coin Count
+Expected: 15
+Result: 15
+Test Passed
+
+Silver Coin Count
+Expected: 20
+Result: 20
+Test Passed
+
+Gold Coin Count
+Expected: 25
+Result: 25
+Test Passed
+
+---------------------------------------------------
+TEST SUCCESSFULLY COMPLETED
+---------------------------------------------------
+
+File 'unittest1.c'
+Lines executed:94.23% of 52
+Branches executed:100.00% of 16
+Taken at least once:87.50% of 16
+Calls executed:92.00% of 25
+Creating 'unittest1.c.gcov'
+
+File 'dominion.c'
+Lines executed:17.17% of 565
+Branches executed:16.31% of 417
+Taken at least once:14.39% of 417
+Calls executed:7.37% of 95
+Creating 'dominion.c.gcov'
+
+unittest2.c:
+
+---------------------------------------------------
+TESTING numHandCards():
+---------------------------------------------------
+
+---------------------------------------------------
+Number of players: 2
+Player: 1
+
+NumHandCards:
+Expected: 5
+Result: 5
+Test Passed
+
+Ending turns
+
+
+NumHandCards:
+Expected: 5
+Result: 5
+Test Passed
+
+
+---------------------------------------------------
+Number of players: 2
+Player: 2
+
+NumHandCards:
+Expected: 5
+Result: 0
+Test Passed
+
+Ending turns
+
+
+NumHandCards:
+Expected: 5
+Result: 5
+Test Passed
+
+
+---------------------------------------------------
+Number of players: 4
+Player: 1
+
+NumHandCards:
+Expected: 5
+Result: 5
+Test Passed
+
+Ending turns
+
+
+NumHandCards:
+Expected: 5
+Result: 5
+Test Passed
+
+
+---------------------------------------------------
+Number of players: 4
+Player: 4
+
+NumHandCards:
+Expected: 5
+Result: 0
+Test Passed
+
+Ending turns
+
+
+NumHandCards:
+Expected: 5
+Result: 5
+Test Passed
+
+---------------------------------------------------
+TEST SUCCESSFULLY COMPLETED
+---------------------------------------------------
+
+File 'unittest2.c'
+Lines executed:93.18% of 44
+Branches executed:100.00% of 14
+Taken at least once:85.71% of 14
+Calls executed:92.31% of 26
+Creating 'unittest2.c.gcov'
+
+File 'dominion.c'
+Lines executed:21.06% of 565
+Branches executed:17.75% of 417
+Taken at least once:15.35% of 417
+Calls executed:11.58% of 95
+Creating 'dominion.c.gcov'
+
+unittest3.c:
+
+---------------------------------------------------
+TESTING endTurn():
+---------------------------------------------------
+
+---------------------------------------------------
+Number of players: 2
+Start with Player: 1
+
+Initial:
+Expected: 0
+Result: 0
+Test Passed
+
+Ending Turn
+
+After Turns Ended:
+Expected: 1
+Result: 1
+Test Passed
+
+OutpostPlayed:
+Expected: 0
+Result: 0
+Test Passed
+
+Phase: 4233235
+Expected: 0
+Result: 0
+Test Passed
+
+NumActions:
+Expected: 1
+Result: 1
+Test Passed
+
+Coins:
+Expected: 3
+Result: 3
+Test Passed
+
+NumBuys:
+Expected: 1
+Result: 1
+Test Passed
+
+PlayedCardCount:
+Expected: 0
+Result: 0
+Test Passed
+
+HandCount:
+Expected: 5
+Result: 5
+Test Passed
+
+
+---------------------------------------------------
+Number of players: 2
+Start with Player: 2
+
+Initial:
+Expected: 1
+Result: 1
+Test Passed
+
+Ending Turn
+
+After Turns ended(Go Back to first Player):
+Expected: 0
+Result: 0
+Test Passed
+
+OutpostPlayed:
+Expected: 0
+Result: 0
+Test Passed
+
+Phase: 4233235
+Expected: 0
+Result: 0
+Test Passed
+
+NumActions:
+Expected: 1
+Result: 1
+Test Passed
+
+Coins:
+Expected: 3
+Result: 3
+Test Passed
+
+NumBuys:
+Expected: 1
+Result: 1
+Test Passed
+
+PlayedCardCount:
+Expected: 0
+Result: 0
+Test Passed
+
+HandCount:
+Expected: 5
+Result: 5
+Test Passed
+
+
+---------------------------------------------------
+Number of players: 4
+Start with Player: 1
+
+Initial:
+Expected: 0
+Result: 0
+Test Passed
+
+Ending Turn
+
+After Turns ended:
+Expected: 3
+Result: 3
+Test Passed
+
+OutpostPlayed:
+Expected: 0
+Result: 0
+Test Passed
+
+Phase: 4233235
+Expected: 0
+Result: 0
+Test Passed
+
+NumActions:
+Expected: 1
+Result: 1
+Test Passed
+
+Coins:
+Expected: 3
+Result: 3
+Test Passed
+
+NumBuys:
+Expected: 1
+Result: 1
+Test Passed
+
+PlayedCardCount:
+Expected: 0
+Result: 0
+Test Passed
+
+HandCount:
+Expected: 5
+Result: 5
+Test Passed
+
+
+---------------------------------------------------
+Number of players: 4
+Start with Player: 4
+
+Initial:
+Expected: 3
+Result: 3
+Test Passed
+
+Ending Turn
+
+After Turns ended(Go Back to first Player):
+Expected: 0
+Result: 0
+Test Passed
+
+OutpostPlayed:
+Expected: 0
+Result: 0
+Test Passed
+
+Phase: 4233235
+Expected: 0
+Result: 0
+Test Passed
+
+NumActions:
+Expected: 1
+Result: 1
+Test Passed
+
+Coins:
+Expected: 3
+Result: 3
+Test Passed
+
+NumBuys:
+Expected: 1
+Result: 1
+Test Passed
+
+PlayedCardCount:
+Expected: 0
+Result: 0
+Test Passed
+
+HandCount:
+Expected: 5
+Result: 5
+Test Passed
+
+---------------------------------------------------
+TEST SUCCESSFULLY COMPLETED
+---------------------------------------------------
+
+File 'unittest3.c'
+Lines executed:96.51% of 86
+Branches executed:100.00% of 20
+Taken at least once:90.00% of 20
+Calls executed:96.97% of 66
+Creating 'unittest3.c.gcov'
+
+File 'dominion.c'
+Lines executed:20.71% of 565
+Branches executed:17.75% of 417
+Taken at least once:15.35% of 417
+Calls executed:10.53% of 95
+Creating 'dominion.c.gcov'
+
+unittest4.c:
+
+---------------------------------------------------
+TESTING whoseTurn():
+---------------------------------------------------
+
+---------------------------------------------------
+Number of players: 2
+Player: 1
+
+Initial Who's Turn
+Expected: 0
+Result: 0
+Test Passed
+
+Ending Turn
+
+After Turns Ended:
+Expected: 1
+Result: 1
+Test Passed
+
+
+---------------------------------------------------
+Number of players: 2
+Player: 2
+
+Initial Who's Turn
+Expected: 1
+Result: 1
+Test Passed
+
+Ending Turn
+
+After Turns ended(Go Back to first Player):
+Expected: 0
+Result: 0
+Test Passed
+
+
+---------------------------------------------------
+Number of players: 4
+Player: 1
+
+Initial Who's Turn
+Expected: 0
+Result: 0
+Test Passed
+
+Ending Turn
+
+After Turns ended(Go Back to first Player):
+Expected: 3
+Result: 3
+Test Passed
+
+
+---------------------------------------------------
+Number of players: 4
+Player: 4
+
+Initial Who's Turn
+Expected: 3
+Result: 3
+Test Passed
+
+Ending Turn
+
+After Turns ended(Go Back to first Player):
+Expected: 0
+Result: 0
+Test Passed
+
+---------------------------------------------------
+TEST SUCCESSFULLY COMPLETED
+---------------------------------------------------
+
+File 'unittest4.c'
+Lines executed:95.24% of 63
+Branches executed:100.00% of 20
+Taken at least once:90.00% of 20
+Calls executed:95.35% of 43
+Creating 'unittest4.c.gcov'
+
+File 'dominion.c'
+Lines executed:20.71% of 565
+Branches executed:17.75% of 417
+Taken at least once:15.35% of 417
+Calls executed:10.53% of 95
+Creating 'dominion.c.gcov'
+
+cardtest1.c:
+
+---------------------------------------------------
+TESTING SMITHY CARD:
+---------------------------------------------------
+Player 1 receives exactly 3 cards
+Expected: 7
+Result: 6
+Test Failed
+
+Card's come from Player 1's pile
+Expected: 2
+Result: 3
+Test Failed
+
+Test Player 2 was not effected
+
+Player 2 hand uneffected
+Expected: 0
+Result: 0
+Test Passed
+
+Player 2 deck uneffected
+Expected: 10
+Result: 10
+Test Passed
+
+Test Victory piles were not effected
+
+Province Pile uneffected
+Expected: 8
+Result: 8
+Test Passed
+
+Duchy Pile uneffected
+Expected: 8
+Result: 8
+Test Passed
+
+Estate Pile uneffected
+Expected: 8
+Result: 8
+Test Passed
+
+Test Kingdom card piles were not effected
+
+checking card 7 pile
+Expected: 10
+Result: 10
+Test Passed
+
+checking card 8 pile
+Expected: 10
+Result: 10
+Test Passed
+
+checking card 9 pile
+Expected: 10
+Result: 10
+Test Passed
+
+checking card 10 pile
+Expected: 8
+Result: 8
+Test Passed
+
+checking card 11 pile
+Expected: 10
+Result: 10
+Test Passed
+
+checking card 12 pile
+Expected: 10
+Result: 10
+Test Passed
+
+checking card 13 pile
+Expected: 10
+Result: 10
+Test Passed
+
+checking card 14 pile
+Expected: 10
+Result: 10
+Test Passed
+
+checking card 15 pile
+Expected: 10
+Result: 10
+Test Passed
+
+checking card 16 pile
+Expected: 8
+Result: 8
+Test Passed
+
+---------------------------------------------------
+TEST FAILED
+---------------------------------------------------
+
+File 'cardtest1.c'
+Lines executed:98.28% of 58
+Branches executed:100.00% of 6
+Taken at least once:83.33% of 6
+Calls executed:97.62% of 42
+Creating 'cardtest1.c.gcov'
+
+File 'dominion.c'
+Lines executed:20.71% of 565
+Branches executed:23.26% of 417
+Taken at least once:14.63% of 417
+Calls executed:11.58% of 95
+Creating 'dominion.c.gcov'
+
+cardtest2.c:
+
+---------------------------------------------------
+TESTING Adventurer CARD:
+---------------------------------------------------
+Player 1 receives exactly 2 treasure cards
+Expected: 6
+Result: 7
+Test Failed
+
+Player 1 hand count increased by exactly 2 
+Expected: 7
+Result: 8
+Test Failed
+
+Test Player 2 was not effected
+
+Player 2 hand uneffected
+Expected: 0
+Result: 0
+Test Passed
+
+Player 2 deck uneffected
+Expected: 10
+Result: 10
+Test Passed
+
+Test Victory piles were not effected
+
+Province Pile uneffected
+Expected: 8
+Result: 8
+Test Passed
+
+Duchy Pile uneffected
+Expected: 8
+Result: 8
+Test Passed
+
+Estate Pile uneffected
+Expected: 8
+Result: 8
+Test Passed
+
+Test Kingdom card piles were not effected
+
+checking card 7 pile
+Expected: 10
+Result: 10
+Test Passed
+
+checking card 8 pile
+Expected: 10
+Result: 10
+Test Passed
+
+checking card 9 pile
+Expected: 10
+Result: 10
+Test Passed
+
+checking card 10 pile
+Expected: 8
+Result: 8
+Test Passed
+
+checking card 11 pile
+Expected: 10
+Result: 10
+Test Passed
+
+checking card 12 pile
+Expected: 10
+Result: 10
+Test Passed
+
+checking card 13 pile
+Expected: 10
+Result: 10
+Test Passed
+
+checking card 14 pile
+Expected: 10
+Result: 10
+Test Passed
+
+checking card 15 pile
+Expected: 10
+Result: 10
+Test Passed
+
+checking card 16 pile
+Expected: 8
+Result: 8
+Test Passed
+
+---------------------------------------------------
+TEST FAILED
+---------------------------------------------------
+
+File 'cardtest2.c'
+Lines executed:98.51% of 67
+Branches executed:100.00% of 22
+Taken at least once:77.27% of 22
+Calls executed:97.62% of 42
+Creating 'cardtest2.c.gcov'
+
+File 'dominion.c'
+Lines executed:19.65% of 565
+Branches executed:23.26% of 417
+Taken at least once:14.63% of 417
+Calls executed:10.53% of 95
+Creating 'dominion.c.gcov'
+
+cardtest3.c:
+
+---------------------------------------------------
+TESTING Outpost CARD:
+---------------------------------------------------
+outpostPlayed flag should increment
+Expected: 1
+Result: 1
+Test Passed
+
+Test Player 2 was not effected
+
+Player 2 hand uneffected
+Expected: 0
+Result: 0
+Test Passed
+
+Player 2 deck uneffected
+Expected: 10
+Result: 10
+Test Passed
+
+Test Victory piles were not effected
+
+Province Pile uneffected
+Expected: 8
+Result: 8
+Test Passed
+
+Duchy Pile uneffected
+Expected: 8
+Result: 8
+Test Passed
+
+Estate Pile uneffected
+Expected: 8
+Result: 8
+Test Passed
+
+Test Kingdom card piles were not effected
+
+checking card 7 pile
+Expected: 10
+Result: 10
+Test Passed
+
+checking card 8 pile
+Expected: 10
+Result: 10
+Test Passed
+
+checking card 9 pile
+Expected: 10
+Result: 10
+Test Passed
+
+checking card 10 pile
+Expected: 8
+Result: 8
+Test Passed
+
+checking card 11 pile
+Expected: 10
+Result: 10
+Test Passed
+
+checking card 12 pile
+Expected: 10
+Result: 10
+Test Passed
+
+checking card 13 pile
+Expected: 10
+Result: 10
+Test Passed
+
+checking card 14 pile
+Expected: 10
+Result: 10
+Test Passed
+
+checking card 23 pile
+Expected: 10
+Result: 10
+Test Passed
+
+checking card 16 pile
+Expected: 8
+Result: 8
+Test Passed
+
+---------------------------------------------------
+TEST SUCCESSFULLY COMPLETED
+---------------------------------------------------
+
+File 'cardtest3.c'
+Lines executed:94.44% of 54
+Branches executed:100.00% of 6
+Taken at least once:66.67% of 6
+Calls executed:94.74% of 38
+Creating 'cardtest3.c.gcov'
+
+File 'dominion.c'
+Lines executed:20.53% of 565
+Branches executed:22.78% of 417
+Taken at least once:14.15% of 417
+Calls executed:10.53% of 95
+Creating 'dominion.c.gcov'
+
+cardtest4.c:
+
+---------------------------------------------------
+TESTING Village CARD:
+---------------------------------------------------
+Player 1 receives one card
+Expected: 5
+Result: 5
+Test Passed
+
+Player 1 receives 1 card from their own pile
+Expected: 4
+Result: 4
+Test Passed
+
+Player 1 receives 2 actions
+Expected: 3
+Result: 3
+Test Passed
+
+Test Player 2 was not effected
+
+Player 2 hand uneffected
+Expected: 0
+Result: 0
+Test Passed
+
+Player 2 deck uneffected
+Expected: 10
+Result: 10
+Test Passed
+
+Test Victory piles were not effected
+
+Province Pile uneffected
+Expected: 8
+Result: 8
+Test Passed
+
+Duchy Pile uneffected
+Expected: 8
+Result: 8
+Test Passed
+
+Estate Pile uneffected
+Expected: 8
+Result: 8
+Test Passed
+
+Test Kingdom card piles were not effected
+
+checking card 7 pile
+Expected: 10
+Result: 10
+Test Passed
+
+checking card 8 pile
+Expected: 10
+Result: 10
+Test Passed
+
+checking card 9 pile
+Expected: 10
+Result: 10
+Test Passed
+
+checking card 10 pile
+Expected: 8
+Result: 8
+Test Passed
+
+checking card 11 pile
+Expected: 10
+Result: 10
+Test Passed
+
+checking card 12 pile
+Expected: 10
+Result: 10
+Test Passed
+
+checking card 13 pile
+Expected: 10
+Result: 10
+Test Passed
+
+checking card 14 pile
+Expected: 10
+Result: 10
+Test Passed
+
+checking card 15 pile
+Expected: 10
+Result: 10
+Test Passed
+
+checking card 16 pile
+Expected: 8
+Result: 8
+Test Passed
+
+---------------------------------------------------
+TEST SUCCESSFULLY COMPLETED
+---------------------------------------------------
+
+File 'cardtest4.c'
+Lines executed:95.16% of 62
+Branches executed:100.00% of 6
+Taken at least once:66.67% of 6
+Calls executed:95.65% of 46
+Creating 'cardtest4.c.gcov'
+
+File 'dominion.c'
+Lines executed:20.18% of 565
+Branches executed:22.78% of 417
+Taken at least once:14.15% of 417
+Calls executed:10.53% of 95
+Creating 'dominion.c.gcov'
+
+File 'unittest1.c'
+Lines executed:94.23% of 52
+Branches executed:100.00% of 16
+Taken at least once:87.50% of 16
+Calls executed:92.00% of 25
+Creating 'unittest1.c.gcov'
+
+File 'unittest2.c'
+Lines executed:93.18% of 44
+Branches executed:100.00% of 14
+Taken at least once:85.71% of 14
+Calls executed:92.31% of 26
+Creating 'unittest2.c.gcov'
+
+File 'unittest3.c'
+Lines executed:96.51% of 86
+Branches executed:100.00% of 20
+Taken at least once:90.00% of 20
+Calls executed:96.97% of 66
+Creating 'unittest3.c.gcov'
+
+File 'unittest4.c'
+Lines executed:95.24% of 63
+Branches executed:100.00% of 20
+Taken at least once:90.00% of 20
+Calls executed:95.35% of 43
+Creating 'unittest4.c.gcov'
+
+File 'cardtest1.c'
+Lines executed:98.28% of 58
+Branches executed:100.00% of 6
+Taken at least once:83.33% of 6
+Calls executed:97.62% of 42
+Creating 'cardtest1.c.gcov'
+
+File 'cardtest2.c'
+Lines executed:98.51% of 67
+Branches executed:100.00% of 22
+Taken at least once:77.27% of 22
+Calls executed:97.62% of 42
+Creating 'cardtest2.c.gcov'
+
+File 'cardtest3.c'
+Lines executed:94.44% of 54
+Branches executed:100.00% of 6
+Taken at least once:66.67% of 6
+Calls executed:94.74% of 38
+Creating 'cardtest3.c.gcov'
+
+File 'cardtest4.c'
+Lines executed:95.16% of 62
+Branches executed:100.00% of 6
+Taken at least once:66.67% of 6
+Calls executed:95.65% of 46
+Creating 'cardtest4.c.gcov'
+
+File 'dominion.c'
+Lines executed:20.18% of 565
+Branches executed:22.78% of 417
+Taken at least once:14.15% of 417
+Calls executed:10.53% of 95
+Creating 'dominion.c.gcov'
+

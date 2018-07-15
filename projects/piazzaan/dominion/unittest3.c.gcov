@@ -1,0 +1,292 @@
+        -:    0:Source:unittest3.c
+        -:    0:Graph:unittest3.gcno
+        -:    0:Data:unittest3.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:/*
+        -:    2: * -----------------------------------------------------------------------
+        -:    3: * unittest3.c
+        -:    4: * CS 362_400
+        -:    5: * Antonio Piazza
+        -:    6: * piazzaan
+        -:    7: * 7/15/2108
+        -:    8: * 
+        -:    9: * Unit test 3 for Dominion function endTurn()
+        -:   10: * 
+        -:   11: * Include the following lines in your makefile:
+        -:   12: *
+        -:   13: * unittestresults: unittest3.c dominion.o rngs.o
+        -:   14: *      gcc -o unittest3 -g  unittest3.c dominion.c rngs.c $(CFLAGS)
+        -:   15: *      ./unittest3 >> unittestresults.out
+        -:   16: *
+        -:   17: * references: 
+        -:   18: * -----------------------------------------------------------------------
+        -:   19: */
+        -:   20:
+        -:   21:#include "dominion.h"
+        -:   22:#include <stdio.h>
+        -:   23:#include "dominion_helpers.h"
+        -:   24:#include "rngs.h"
+        -:   25:
+        -:   26:
+        -:   27:// Variable to keep count of test fails
+        -:   28:int failCnt = 0;
+        -:   29:
+        -:   30:/*
+        -:   31: * To avoid making it hard to collect coverage when a test fails, 
+        -:   32: * using my own asserttrue function instead of the standard C assert 
+        -:   33: * (which basically crashes the code and fails to collect coverage). 
+        -:   34: * My assert also prints whether the test passes or fails.  If the test   
+        -:   35: * fails the fail counter int variable will increment by 1.
+        -:   36: */
+function assertTrue called 36 returned 100% blocks executed 60%
+       36:   37: void assertTrue(int int1, int int2) 
+        -:   38: {
+       36:   39:	if (int1 == int2) 
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        -:   40:	{
+       36:   41:		printf("Test Passed\n");
+call    0 returned 100%
+        -:   42:	} 
+        -:   43:	else
+        -:   44:	{
+    #####:   45:		printf("Test Failed\n");
+call    0 never executed
+    #####:   46:		failCnt++;
+        -:   47:	}
+       36:   48: }
+        -:   49: 
+        -:   50: 
+        -:   51: // Main function
+function main called 1 returned 100% blocks executed 99%
+        1:   52: int main()
+        -:   53: {
+        -:   54:	int player, gameInit, numPlayer;
+        1:   55:	int maxPlayer = 4;
+        1:   56:	int seed = 1000;
+        1:   57:	int k[10] = {adventurer, council_room, feast, gardens, mine
+        -:   58:		, remodel, smithy, village, baron, great_hall};
+        -:   59:	struct gameState gState;
+        -:   60:
+        -:   61:
+        -:   62: 
+        1:   63:	printf ("\n---------------------------------------------------\nTESTING endTurn():\n---------------------------------------------------");
+call    0 returned 100%
+        -:   64:	
+        -:   65:	
+        -:   66:	// Loop through edge cases of number of players 2 and 4
+        3:   67:	for(numPlayer = 2; numPlayer <= maxPlayer; numPlayer += 2)
+branch  0 taken 67%
+branch  1 taken 33% (fallthrough)
+        -:   68:	{
+        -:   69:		// Loop through players
+        6:   70:		for (player = 0; player < numPlayer; player++)
+branch  0 taken 67%
+branch  1 taken 33% (fallthrough)
+        -:   71:		{
+        4:   72:			printf("\n\n---------------------------------------------------\nNumber of players: %d\n", numPlayer);
+call    0 returned 100%
+        4:   73:			printf("Start with Player: %d\n", player + 1);
+call    0 returned 100%
+        -:   74:					
+        4:   75:			memset(&gState, 23, sizeof(struct gameState));  // Clear game state
+        4:   76:			gameInit = initializeGame(numPlayer, k, seed, &gState);  // Initialize a new game
+call    0 returned 100%
+        -:   77:			
+        4:   78:			if (player == 1) 
+branch  0 taken 25% (fallthrough)
+branch  1 taken 75%
+        -:   79:			{
+        1:   80:				endTurn(&gState);
+call    0 returned 100%
+        -:   81:			}
+        4:   82:			if (player == 3)
+branch  0 taken 25% (fallthrough)
+branch  1 taken 75%
+        -:   83:			{
+        1:   84:				endTurn(&gState);
+call    0 returned 100%
+        1:   85:				endTurn(&gState);
+call    0 returned 100%
+        1:   86:				endTurn(&gState);
+call    0 returned 100%
+        -:   87:			}
+        -:   88:			
+        4:   89:			printf("\nInitial:\n");
+call    0 returned 100%
+        4:   90:			printf("Expected: %d\n", player);
+call    0 returned 100%
+        4:   91:			printf("Result: %d\n", gState.whoseTurn);
+call    0 returned 100%
+        4:   92:			assertTrue(gState.whoseTurn, player);
+call    0 returned 100%
+        -:   93:			
+        4:   94:			printf("\nEnding Turn\n");
+call    0 returned 100%
+        4:   95:			if (numPlayer == 4)
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        -:   96:			{
+        -:   97:				
+        2:   98:				if (player == 0)
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        -:   99:				{
+        1:  100:					endTurn(&gState);
+call    0 returned 100%
+        1:  101:					endTurn(&gState);
+call    0 returned 100%
+        1:  102:					endTurn(&gState);
+call    0 returned 100%
+        -:  103:					
+        1:  104:					printf("\nAfter Turns ended:\n");
+call    0 returned 100%
+        1:  105:					printf("Expected: %d\n", 3);
+call    0 returned 100%
+        1:  106:					printf("Result: %d\n", gState.whoseTurn);
+call    0 returned 100%
+        1:  107:					assertTrue(gState.whoseTurn, 3);
+call    0 returned 100%
+        -:  108:				}
+        -:  109:				else
+        -:  110:				{
+        1:  111:					endTurn(&gState);
+call    0 returned 100%
+        1:  112:					printf("\nAfter Turns ended(Go Back to first Player):\n");
+call    0 returned 100%
+        1:  113:					printf("Expected: %d\n", 0);
+call    0 returned 100%
+        1:  114:					printf("Result: %d\n", gState.whoseTurn);
+call    0 returned 100%
+        1:  115:					assertTrue(gState.whoseTurn, 0);
+call    0 returned 100%
+        -:  116:				}
+        -:  117:			}
+        -:  118:			else
+        -:  119:			{
+        2:  120:				endTurn(&gState);
+call    0 returned 100%
+        2:  121:				if (player == 0)
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        -:  122:				{
+        1:  123:					printf("\nAfter Turns Ended:\n");
+call    0 returned 100%
+        1:  124:					printf("Expected: %d\n", 1);
+call    0 returned 100%
+        1:  125:					printf("Result: %d\n", gState.whoseTurn);
+call    0 returned 100%
+        1:  126:					assertTrue(gState.whoseTurn, 1);
+call    0 returned 100%
+        -:  127:				}
+        -:  128:				else
+        -:  129:				{
+        1:  130:					printf("\nAfter Turns ended(Go Back to first Player):\n");
+call    0 returned 100%
+        1:  131:					printf("Expected: %d\n", 0);
+call    0 returned 100%
+        1:  132:					printf("Result: %d\n", gState.whoseTurn);
+call    0 returned 100%
+        1:  133:					assertTrue(gState.whoseTurn, 0);
+call    0 returned 100%
+        -:  134:				}
+        -:  135:			}
+        -:  136:			
+        -:  137:			// If Number of players is 4 then to test the upper edge case we 
+        -:  138:			// Need to increment player by more than 1 for this for loop
+        4:  139:			if (numPlayer == 4) 
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        -:  140:			{
+        2:  141:				player += 2;
+        -:  142:			}
+        -:  143:			
+        4:  144:			printf("\nOutpostPlayed:\n");
+call    0 returned 100%
+        4:  145:			printf("Expected: %d\n", 0);
+call    0 returned 100%
+        4:  146:			printf("Result: %d\n", gState.outpostPlayed);
+call    0 returned 100%
+        4:  147:			assertTrue(gState.outpostPlayed,0);
+call    0 returned 100%
+        -:  148:			
+        4:  149:			printf("\nPhase: %d\n");
+call    0 returned 100%
+        4:  150:			printf("Expected: %d\n", 0);
+call    0 returned 100%
+        4:  151:			printf("Result: %d\n", gState.phase);
+call    0 returned 100%
+        4:  152:		    assertTrue(gState.phase,0);
+call    0 returned 100%
+        -:  153:			
+        4:  154:			printf("\nNumActions:\n");
+call    0 returned 100%
+        4:  155:			printf("Expected: %d\n", 1);
+call    0 returned 100%
+        4:  156:			printf("Result: %d\n", gState.numActions);
+call    0 returned 100%
+        4:  157:		    assertTrue(gState.numActions,1);
+call    0 returned 100%
+        -:  158:			
+        4:  159:			printf("\nCoins:\n");
+call    0 returned 100%
+        4:  160:			printf("Expected: %d\n", 3);
+call    0 returned 100%
+        4:  161:			printf("Result: %d\n", gState.coins);
+call    0 returned 100%
+        4:  162:		    assertTrue(gState.coins,3);
+call    0 returned 100%
+        -:  163:			
+        4:  164:			printf("\nNumBuys:\n");
+call    0 returned 100%
+        4:  165:			printf("Expected: %d\n", 1);
+call    0 returned 100%
+        4:  166:			printf("Result: %d\n", gState.numBuys);
+call    0 returned 100%
+        4:  167:		    assertTrue(gState.numBuys,1);
+call    0 returned 100%
+        -:  168:			
+        4:  169:			printf("\nPlayedCardCount:\n");
+call    0 returned 100%
+        4:  170:			printf("Expected: %d\n", 0);
+call    0 returned 100%
+        4:  171:			printf("Result: %d\n", gState.playedCardCount);
+call    0 returned 100%
+        4:  172:		    assertTrue(gState.playedCardCount,0);
+call    0 returned 100%
+        -:  173:			
+        4:  174:			printf("\nHandCount:\n");
+call    0 returned 100%
+        4:  175:			printf("Expected: %d\n", 5);
+call    0 returned 100%
+        4:  176:			printf("Result: %d\n", gState.handCount[gState.whoseTurn]);
+call    0 returned 100%
+        4:  177:		    assertTrue(gState.handCount[gState.whoseTurn],5);
+call    0 returned 100%
+        -:  178:		}
+        -:  179:	}
+        -:  180:	
+        -:  181: 
+        -:  182:	/* 
+        -:  183:	 * Print “TEST SUCCESSFULLY COMPLETED” If and only if the entire test  
+        -:  184:	 * passes, and usually (this isn’t always possible for crashing bugs) print 
+        -:  185:	 * "TEST FAILED” for a failure. This makes it easy to  process failing and passing tests. 
+        -:  186:	 */
+        1:  187:	if (failCnt)  // If the counter is greater than 0 print fail message
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+        -:  188:	{
+    #####:  189:		printf("\n---------------------------------------------------\nTEST FAILED\n---------------------------------------------------\n\n");
+call    0 never executed
+        -:  190:	}
+        -:  191:	else          // Else all tests pass, print pass message
+        -:  192:	{
+        1:  193:		printf("\n---------------------------------------------------\nTEST SUCCESSFULLY COMPLETED\n---------------------------------------------------\n\n");
+call    0 returned 100%
+        -:  194:	}
+        -:  195:	  
+        1:  196:	return 0;
+        -:  197:	  
+        -:  198:}
+        -:  199:  

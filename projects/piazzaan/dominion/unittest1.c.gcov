@@ -1,0 +1,223 @@
+        -:    0:Source:unittest1.c
+        -:    0:Graph:unittest1.gcno
+        -:    0:Data:unittest1.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:/*
+        -:    2: * -----------------------------------------------------------------------
+        -:    3: * unittest1.c
+        -:    4: * CS 362_400
+        -:    5: * Antonio Piazza
+        -:    6: * piazzaan
+        -:    7: * 7/15/2108
+        -:    8: * 
+        -:    9: * Unit test 1 for Dominion function updateCoins
+        -:   10: * 
+        -:   11: * Include the following lines in your makefile:
+        -:   12: *
+        -:   13: * unittestresults: unittest1.c dominion.o rngs.o
+        -:   14: *      gcc -o unittest1 -g  unittest1.c dominion.o rngs.o $(CFLAGS)
+        -:   15: *      ./unittest1 >> unittestresults.out
+        -:   16: *
+        -:   17: * references: https://instructure-uploads.s3.amazonaws.com/account_10020000000097009/attachments/57943997/testUpdateCoins.c?response-content-disposition=inline%3B%20filename%3D%22testUpdateCoins.c%22%3B%20filename%2A%3DUTF-8%27%27testUpdateCoins.c&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJDW777BLV26JM2MQ%2F20180713%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20180713T230229Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=2214574dced4a3ea9ba53a11edad366aab41c4d203b5efb1df63de53855ed76d
+        -:   18: * -----------------------------------------------------------------------
+        -:   19: */
+        -:   20:
+        -:   21:#include "dominion.h"
+        -:   22:#include <stdio.h>
+        -:   23:#include "dominion_helpers.h"
+        -:   24:#include "rngs.h"
+        -:   25:
+        -:   26:
+        -:   27:// Variable to keep count of test fails
+        -:   28:int failCnt = 0;
+        -:   29:
+        -:   30:/*
+        -:   31: * To avoid making it hard to collect coverage when a test fails, 
+        -:   32: * using my own asserttrue function instead of the standard C assert 
+        -:   33: * (which basically crashes the code and fails to collect coverage). 
+        -:   34: * My assert also prints whether the test passes or fails.  If the test   
+        -:   35: * fails the fail counter int variable will increment by 1.
+        -:   36: */
+function assertTrue called 48 returned 100% blocks executed 60%
+       48:   37: void assertTrue(int int1, int int2) 
+        -:   38: {
+       48:   39:	if (int1 == int2) 
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        -:   40:	{
+       48:   41:		printf("Test Passed\n");
+call    0 returned 100%
+        -:   42:	} 
+        -:   43:	else
+        -:   44:	{
+    #####:   45:		printf("Test Failed\n");
+call    0 never executed
+    #####:   46:		failCnt++;
+        -:   47:	}
+       48:   48: }
+        -:   49: 
+        -:   50: 
+        -:   51: // Main function
+function main called 1 returned 100% blocks executed 98%
+        1:   52: int main()
+        -:   53: {
+        -:   54:	int i, player, bonus, handCount, gameInit, numPlayer;
+        1:   55:	int maxPlayer = 4;
+        1:   56:	int maxHandCount = 5;
+        1:   57:	int maxBonus = 10;
+        1:   58:	int seed = 1000;
+        1:   59:	int k[10] = {adventurer, council_room, feast, gardens, mine
+        -:   60:		, remodel, smithy, village, baron, great_hall};
+        -:   61:	struct gameState gState;
+        -:   62:
+        -:   63:	int coppers[MAX_HAND];
+        -:   64:    int silvers[MAX_HAND];
+        -:   65:    int golds[MAX_HAND];
+        -:   66:	
+      501:   67:    for (i = 0; i < MAX_HAND; i++)
+branch  0 taken 99%
+branch  1 taken 1% (fallthrough)
+        -:   68:    {
+      500:   69:        coppers[i] = copper;
+      500:   70:        silvers[i] = silver;
+      500:   71:        golds[i] = gold;
+        -:   72:    }
+        -:   73: 
+        1:   74:	printf ("\n---------------------------------------------------\nTESTING updateCoins():\n---------------------------------------------------");
+call    0 returned 100%
+        -:   75:	
+        -:   76:	// Test the updateCoins function for each treasure, player and with different bonuses
+        -:   77:	// and hand counts.
+        -:   78:	
+        -:   79:	// Loop through edge cases of number of players 2 and 4
+        3:   80:	for(numPlayer = 2; numPlayer <= maxPlayer; numPlayer += 2)
+branch  0 taken 67%
+branch  1 taken 33% (fallthrough)
+        -:   81:	{
+        -:   82:		// Loop through players
+        6:   83:		for (player = 0; player < numPlayer; player++)
+branch  0 taken 67%
+branch  1 taken 33% (fallthrough)
+        -:   84:		{
+        -:   85:			// Loop through hand count
+       12:   86:			for (handCount = 0; handCount <= maxHandCount; handCount+=5)
+branch  0 taken 67%
+branch  1 taken 33% (fallthrough)
+        -:   87:			{
+        -:   88:				// Loop through bonuses
+       24:   89:				for (bonus = 1; bonus <= maxBonus; bonus+=9)
+branch  0 taken 67%
+branch  1 taken 33% (fallthrough)
+        -:   90:				{
+       16:   91:					printf("\n\n---------------------------------------------------\nNumber of players: %d\n", numPlayer);
+call    0 returned 100%
+       16:   92:					printf("Player: %d\n", player + 1);
+call    0 returned 100%
+       16:   93:					printf("Hand Count: %d\n", handCount);
+call    0 returned 100%
+       16:   94:					printf("Bonus: %d\n", bonus);
+call    0 returned 100%
+        -:   95:					
+       16:   96:					memset(&gState, 23, sizeof(struct gameState));  // Clear game state
+       16:   97:					gameInit = initializeGame(numPlayer, k, seed, &gState);  // Initialize a new game
+call    0 returned 100%
+       16:   98:					gState.handCount[player] = handCount;
+        -:   99:					
+        -:  100:					
+        -:  101:					
+        -:  102:					// Fill hand with copper
+       16:  103:					memcpy(gState.hand[player], coppers, sizeof(int) * handCount);  // Set all cards to copper
+        -:  104:					
+        -:  105:					// Call updateCoins() function
+       16:  106:					updateCoins(player, &gState, bonus);
+call    0 returned 100%
+        -:  107:					
+       16:  108:					printf("\nCopper Coin Count\n");
+call    0 returned 100%
+       16:  109:					printf("Expected: %d\n", handCount*1+bonus);
+call    0 returned 100%
+       16:  110:					printf("Result: %d\n", gState.coins);
+call    0 returned 100%
+        -:  111:					
+        -:  112:					// Test Results
+       16:  113:					assertTrue(gState.coins, handCount*1+bonus);
+call    0 returned 100%
+        -:  114:					
+        -:  115:					
+        -:  116:					
+        -:  117:					// Fill hand with silver
+       16:  118:					memcpy(gState.hand[player], silvers, sizeof(int) * handCount);  // Set all cards to silver
+        -:  119:					
+        -:  120:					// Call updateCoins() function
+       16:  121:					updateCoins(player, &gState, bonus);
+call    0 returned 100%
+        -:  122:					
+       16:  123:					printf("\nSilver Coin Count\n");
+call    0 returned 100%
+       16:  124:					printf("Expected: %d\n", handCount*2+bonus);
+call    0 returned 100%
+       16:  125:					printf("Result: %d\n", gState.coins);
+call    0 returned 100%
+        -:  126:					
+        -:  127:					// Test Results
+       16:  128:					assertTrue(gState.coins, handCount*2+bonus);
+call    0 returned 100%
+        -:  129:					
+        -:  130:					
+        -:  131:					
+        -:  132:					// Fill hand with gold
+       16:  133:					memcpy(gState.hand[player], golds, sizeof(int) * handCount);  // Set all cards to gold
+        -:  134:					
+        -:  135:					// Call updateCoins() function
+       16:  136:					updateCoins(player, &gState, bonus);
+call    0 returned 100%
+        -:  137:					
+       16:  138:					printf("\nGold Coin Count\n");
+call    0 returned 100%
+       16:  139:					printf("Expected: %d\n", handCount*3+bonus);
+call    0 returned 100%
+       16:  140:					printf("Result: %d\n", gState.coins);
+call    0 returned 100%
+        -:  141:					
+        -:  142:					// Test Results
+       16:  143:					assertTrue(gState.coins, handCount*3+bonus);
+call    0 returned 100%
+        -:  144:
+        -:  145:				}
+        -:  146:			}
+        -:  147:			
+        -:  148:			// If Number of players is 4 then to test the upper edge case we 
+        -:  149:			// Need to increment player by more than 1 for this for loop
+        4:  150:			if (numPlayer == 4) 
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        -:  151:			{
+        2:  152:				player += 2;
+        -:  153:			}
+        -:  154:		}
+        -:  155:	}
+        -:  156:	
+        -:  157: 
+        -:  158:	/* 
+        -:  159:	 * Print “TEST SUCCESSFULLY COMPLETED” If and only if the entire test  
+        -:  160:	 * passes, and usually (this isn’t always possible for crashing bugs) print 
+        -:  161:	 * "TEST FAILED” for a failure. This makes it easy to  process failing and passing tests. 
+        -:  162:	 */
+        1:  163:	if (failCnt)  // If the counter is greater than 0 print fail message
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+        -:  164:	{
+    #####:  165:		printf("\n---------------------------------------------------\nTEST FAILED\n---------------------------------------------------\n\n");
+call    0 never executed
+        -:  166:	}
+        -:  167:	else          // Else all tests pass, print pass message
+        -:  168:	{
+        1:  169:		printf("\n---------------------------------------------------\nTEST SUCCESSFULLY COMPLETED\n---------------------------------------------------\n\n");
+call    0 returned 100%
+        -:  170:	}
+        -:  171:	  
+        1:  172:	return 0;
+        -:  173:	  
+        -:  174: }
+        -:  175:  
