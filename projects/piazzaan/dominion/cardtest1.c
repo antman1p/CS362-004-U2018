@@ -132,7 +132,7 @@ int failCnt = 0;
 	for (i = 0; i < 10; i++) {
         printf("checking %s card pile\n", k[i]);
 		printf("Expected: %d\n", copyGState.supplyCount[k[i]]);
-		printf("Result: %d\n", gState.supplyCount[k[i]);
+		printf("Result: %d\n", gState.supplyCount[k[i]]);
         assertTrue(gState.supplyCount[k[i]],copyGState.supplyCount[k[i]]);
     }
 	
