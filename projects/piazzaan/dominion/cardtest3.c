@@ -83,18 +83,11 @@ int failCnt = 0;
 	
 	
 	// Check Results
-	// Requirement:  Player gets another turn after playing the Outpost card
-	// Get whose turn it is for the current gamestate
-	playerTurn = whoseTurn(&gState);
-	// end turn
-	endTurn(&gState);
-	// Get whose turn it is now that turn was ended
-	playerTurnAfterEnd = whoseTurn(&gState);
-	// Test that the turn didn't cahnge
-	printf("\nShould still be Player 1's turn\n");
-	printf("Expected: %d\n", playerTurn);
-	printf("Result: %d\n", playerTurnAfterEnd);
-	assertTrue(playerTurn, playerTurnAfterEnd);
+	// Requirement:  Check that outpostPlayed flag is incremented in the gamestate
+	printf("\noutpostPlayed should increment\n");
+	printf("Expected: %d\n", copyGState.outpostPlayed + 1);
+	printf("Result: %d\n", gState.outpostPlayed);
+	assertTrue(gState.outpostPlayed, copyGState.outpostPlayed + 1);
 	
 	
 	
