@@ -27,53 +27,57 @@ unittestresults: unittest1.c unittest2.c dominion.c rngs.c
 	echo "unittest1.c: " >> unittestresults.out
 	gcc -o unittest1 -g  unittest1.c dominion.c rngs.c $(CFLAGS)
 	./unittest1 >> unittestresults.out
-	gcov unittest1.c
-	
+	gcov unittest1.c b >> unittestresults.out
+	gcov dominion.c -b >> unittestresults.out
 	
 	echo "unittest2.c:" >> unittestresults.out
 	gcc -o unittest2 -g unittest2.c dominion.c rngs.c $(CFLAGS)
 	./unittest2 >> unittestresults.out
-	gcov unittest2.c
+	gcov unittest2.c >> unittestresults.out
+	gcov dominion.c -b >> unittestresults.out
 	
 	
 	echo "unittest3.c:" >> unittestresults.out
 	gcc -o unittest3 -g unittest3.c dominion.c rngs.c $(CFLAGS)
 	./unittest3 >> unittestresults.out
-	gcov unittest3.c
+	gcov unittest3.c >> unittestresults.out
+	gcov dominion.c -b >> unittestresults.out
 	
 	
 	echo "unittest4.c:" >> unittestresults.out
 	gcc -o unittest4 -g unittest4.c dominion.c rngs.c $(CFLAGS)
 	./unittest4 >> unittestresults.out
-	gcov unittest4.c
+	gcov unittest4.c >> unittestresults.out
+	gcov dominion.c -b >> unittestresults.out
 	
 	
 	echo "cardtest1.c:" >> unittestresults.out
 	gcc -o cardtest1 -g cardtest1.c dominion.c rngs.c $(CFLAGS)
 	./cardtest1 >> unittestresults.out
-	gcov cardtest1.c
+	gcov cardtest1.c >> unittestresults.out
+	gcov dominion.c -b >> unittestresults.out
 	
 	
 	echo "cardtest2.c:" >> unittestresults.out
 	gcc -o cardtest2 -g cardtest2.c dominion.c rngs.c $(CFLAGS)
 	./cardtest2 >> unittestresults.out
-	gcov cardtest2.c
+	gcov cardtest2.c >> unittestresults.out
+	gcov dominion.c -b >> unittestresults.out
 	
 	
 	echo "cardtest3.c:" >> unittestresults.out
 	gcc -o cardtest3 -g cardtest3.c dominion.c rngs.c $(CFLAGS)
 	./cardtest3 >> unittestresults.out
-	gcov cardtest3.c
+	gcov cardtest3.c >> unittestresults.out
+	gcov dominion.c -b >> unittestresults.out
 	
 	
 	echo "cardtest4.c:" >> unittestresults.out
 	gcc -o cardtest4 -g cardtest4.c dominion.c rngs.c $(CFLAGS)
 	./cardtest4 >> unittestresults.out
-	gcov cardtest4.c
+	gcov cardtest4.c >> unittestresults.out
+	gcov dominion.c -b >> unittestresults.out
 	
-	
-	
-	gcov dominion.c
 	gcov unittest1.c -b >> unittestresults.out
 	gcov unittest2.c -b >> unittestresults.out
 	gcov unittest3.c -b >> unittestresults.out
@@ -82,7 +86,6 @@ unittestresults: unittest1.c unittest2.c dominion.c rngs.c
 	gcov cardtest2.c -b >> unittestresults.out
 	gcov cardtest3.c -b >> unittestresults.out
 	gcov cardtest4.c -b >> unittestresults.out
-
 	gcov dominion.c -b >> unittestresults.out
 	
 interface.o: interface.h interface.c
