@@ -6,14 +6,14 @@
  * piazzaan
  * 7/15/2108
  * 
- * Card test 3 for Dominion Outpost card
+ * Card test 4 for Dominion Village card
  * 
  * Include the following lines in your makefile:
  *
- * echo "cardtest3.c:" >> unittestresults.out
- * gcc -o cardtest3 -g cardtest3.c dominion.c rngs.c $(CFLAGS)
- * ./cardtest3 >> unittestresults.out
- * gcov cardtest3.c
+ * echo "cardtest4.c:" >> unittestresults.out
+ * gcc -o cardtest4 -g cardtest4.c dominion.c rngs.c $(CFLAGS)
+ * ./cardtest4 >> unittestresults.out
+ * gcov cardtest4.c
  *
  * references: 
  * -----------------------------------------------------------------------
@@ -65,7 +65,7 @@ int failCnt = 0;
 
 
  
-	printf ("\n---------------------------------------------------\nTESTING Outpost CARD:\n---------------------------------------------------");
+	printf ("\n---------------------------------------------------\nTESTING Village CARD:\n---------------------------------------------------");
 	
 	// Set Game State
 	memset(&gState,23,sizeof(struct gameState));
@@ -77,18 +77,20 @@ int failCnt = 0;
 	// copy the game state to the copy to preserve the game state
 	 memcpy(&copyGState, &gState, sizeof(struct gameState));
 	 
-	// call card effect function for Outpost
-	cardEffect(outpost, choice1, choice2, choice3, &gState, handpos, &bonus);
+	// call card effect function for Village
+	cardEffect(village, choice1, choice2, choice3, &gState, handpos, &bonus);
 	
 	
 	
 	// Check Results
-	// Requirement:  Check that outpostPlayed flag is incremented in the gamestate
+	// Requirement:  Player 1 gains exactly 1 card
 	printf("\noutpostPlayed flag should increment\n");
-	printf("Expected: %d\n", copyGState.outpostPlayed + 1);
-	printf("Result: %d\n", gState.outpostPlayed);
-	assertTrue(gState.outpostPlayed, copyGState.outpostPlayed + 1);
+	printf("Expected: %d\n", copyGState.handCount[player1] + 1);
+	printf("Result: %d\n", gState.handCount[player1]);
+	assertTrue(gState..handCount[player1], copyGState.handCount[player1] + 1);
 	
+	// Requirement:  Player 1 gains exactly 1 card from their own pile
+	// Requirement:  Player 1 gains exactly 2 actions
 	
 	
 	
