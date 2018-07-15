@@ -87,7 +87,7 @@ int failCnt = 0;
 	printf("\noutpostPlayed flag should increment\n");
 	printf("Expected: %d\n", copyGState.handCount[player1] + 1);
 	printf("Result: %d\n", gState.handCount[player1]);
-	assertTrue(gState..handCount[player1], copyGState.handCount[player1] + 1);
+	assertTrue(gState.handCount[player1], copyGState.handCount[player1] + 1);
 	
 	// Requirement:  Player 1 gains exactly 1 card from their own pile
 	// Requirement:  Player 1 gains exactly 2 actions
