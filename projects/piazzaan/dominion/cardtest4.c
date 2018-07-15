@@ -84,10 +84,17 @@ int failCnt = 0;
 	
 	// Check Results
 	// Requirement:  Player 1 gains exactly 1 card
-	printf("\noutpostPlayed flag should increment\n");
-	printf("Expected: %d\n", copyGState.handCount[player1] + 1);
+	printf("\nPlayer 1 receives one card\n");
+	printf("Expected: %d\n", copyGState.handCount[player1]);
 	printf("Result: %d\n", gState.handCount[player1]);
-	assertTrue(gState.handCount[player1], copyGState.handCount[player1] + 1);
+	assertTrue(gState.handCount[player1], copyGState.handCount[player1]);
+	// Village card function also discards a card, so hand counts should be equal
+	// Check that discard pile for player 1 increased by 1
+	printf("\nPlayer 1 discard pile increments by 1\n");
+	printf("Expected: %d\n", copyGState.discardCount[player1] + 1);
+	printf("Result: %d\n", gState.discardCount[player1]);
+	assertTrue(gState.discardCount[player1],  copyGState.discardCount[player1] + 1);
+	
 	
 	// Requirement:  Player 1 gains exactly 1 card from their own pile
 	// Requirement:  Player 1 gains exactly 2 actions
