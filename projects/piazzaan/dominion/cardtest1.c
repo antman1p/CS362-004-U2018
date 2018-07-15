@@ -10,9 +10,10 @@
  * 
  * Include the following lines in your makefile:
  *
- * unittestresults: cardtest1.c dominion.o rngs.o
- *      gcc -o cardtest1 -g  cardtest1.c dominion.c rngs.c $(CFLAGS)
- *      ./cardtest1 >> unittestresults.out
+ * echo "cardtest1.c:" >> unittestresults.out
+ * gcc -o cardtest1 -g  cardtest1.c dominion.c rngs.c $(CFLAGS)
+ * ./cardtest1 >> unittestresults.out
+ * gcov cardtest1.c
  *
  * references: 
  * -----------------------------------------------------------------------

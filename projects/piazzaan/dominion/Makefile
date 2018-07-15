@@ -41,12 +41,14 @@ unittestresults: unittest1.c unittest2.c dominion.c rngs.c
 	./unittest3 >> unittestresults.out
 	gcov unittest3.c
 	
+	
 	echo "unittest4.c:" >> unittestresults.out
 	gcc -o unittest4 -g unittest4.c dominion.c rngs.c $(CFLAGS)
 	./unittest4 >> unittestresults.out
 	gcov unittest4.c
 	
-	unittestresults: cardtest1.c dominion.o rngs.o
+	
+	echo "cardtest1.c:" >> unittestresults.out
 	gcc -o cardtest1 -g  cardtest1.c dominion.c rngs.c $(CFLAGS)
 	./cardtest1 >> unittestresults.out
 	gcov cardtest1.c
