@@ -101,49 +101,6 @@ int failCnt = 0;
 	
 	
 	
-	// Requirement:  Current player should receive exactly 2 treasure cards
-	printf("\nPlayer 1 receives exactly 2 treasure cards\n");
-	// Check original number of treasure cards in player 1's hand
-	for ( i = 0; i < copyGState.handCount[player1]; i++)
-	{
-		card = copyGState.hand[player1][i];
-		if (card == copper || card == silver || card == gold) 
-		{
-			treasureNumOrig++;
-		}
-	}
-	
-	// Check new number of treasure cards in player 1's hand
-	for ( i = 0; i < gState.handCount[player1]; i++)
-	{
-		card = gState.hand[player1][i];
-		if (card == copper || card == silver || card == gold) 
-		{
-			treasureNum++;
-		}
-	}
-	
-  
-	printf("Expected: %d\n", treasureNumOrig+2);
-	printf("Result: %d\n", treasureNum);
-	
-	// Test and make sure the new number of treasures in the hand is 2 more than the original
-	assertTrue(treasureNum, treasureNumOrig+2);
-	
-	
-
-	// Test hand count of player 1 increased by 2
-	printf("\nPlayer 1 hand count increased by exactly 2 \n");
-	printf("Expected: %d\n", copyGState.handCount[player1]+2);
-	printf("Result: %d\n", gState.handCount[player1]);
-    assertTrue(gState.handCount[player1],copyGState.handCount[player1]+2);
-	
-
-	
-	
-	
-	
-	
 	// Requirement: No state change should occur for other players.
 	printf("\nTest Player 2 was not effected\n");
 	// Player 2's hand
