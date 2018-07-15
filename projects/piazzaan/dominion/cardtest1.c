@@ -80,17 +80,32 @@ int failCnt = 0;
 	
 	
 	// Check Results
-	// Requirment:  Current player should receive exactly 3 cards
+	// Requirement:  Current player should receive exactly 3 cards
 	printf("\nPlayer 1 receives exactly 3 cards\n");
 	printf("Expected: %d\n", copyGState.handCount[player1]+2);
 	printf("Result: %d\n", gState.handCount[player1]);
     assertTrue(gState.handCount[player1],copyGState.handCount[player1]+2);
 	
-	// Requirment:  The 3 cards should come from player's own pile.
+	// Requirement:  The 3 cards should come from player's own pile.
 	printf("\nCard's come from Player 1's pile\n");
 	printf("Expected: %d\n", copyGState.deckCount[player1]-3);
 	printf("Result: %d\n", gState.deckCount[player1]);
     assertTrue(gState.deckCount[player1],copyGState.deckCount[player1]-3);
+	
+	// Requirement: No state change should occur for other players.
+	printf("\nPlayer 2 was not effected\n");
+	// Player 2's hand
+	printf("\nPlayer 2 hand uneffected\n");
+	printf("Expected: %d\n", copyGState.handCount[player2]);
+	printf("Result: %d\n", gState.handCount[player2]);
+    assertTrue(gState.handCount[player2],copyGState.handCount[player2]);
+	//Player 2's deck
+	printf("Expected: %d\n", copyGState.deckCount[player2]);
+	printf("Result: %d\n", gState.deckCount[player2]);
+    assertTrue(gState.deckCount[player2],copyGState.deckCount[player2]);
+	
+	// Requirement: No state change should occur to the victory card piles and kingdom card piles.
+	
 	
  
 	/* 
