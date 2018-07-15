@@ -11,7 +11,7 @@
  * Include the following lines in your makefile:
  *
  * echo "cardtest2.c:" >> unittestresults.out
- * gcc -o cardtest2 -g  cardtest2.c dominion.c rngs.c $(CFLAGS)
+ * gcc -o cardtest2 -g cardtest2.c dominion.c rngs.c $(CFLAGS)
  * ./cardtest2 >> unittestresults.out
  * gcov cardtest2.c
  *
