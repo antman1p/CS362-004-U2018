@@ -73,18 +73,18 @@ int failCnt = 0;
 	initializeGame(numbPlayers, k, seed, &gState);
 	
 	// copy the game state to the copy to preserve the game state
-	 memcpy(&scopyGState, &gState, sizeof(struct gameState));
+	 memcpy(&copyGState, &gState, sizeof(struct gameState));
 	 
 	// call car effect function for Smithy
-	cardEffect(smithy, choice1, choice2, choice3, &state, handpos, &bonus);
+	cardEffect(smithy, choice1, choice2, choice3, &gState, handpos, &bonus);
 	
 	
 	// Check Results
 	// Requiment:  Current player should receive exactly 3 cards
 	printf("\nPlayer 1 receives exactly 3 cards\n");
-	printf("Expected: %d\n", copyGState.handCount[player0]+2);
-	printf("Result: %d\n", gState.handCount[player0]);
-    assertTrue(state.deckCount[player0],copyGState.deckCount[player0]+2);
+	printf("Expected: %d\n", copyGState.handCount[player1]+2);
+	printf("Result: %d\n", gState.handCount[player1]);
+    assertTrue(gState.deckCount[player1],copyGState.deckCount[player1]+2);
 	
 	
  
