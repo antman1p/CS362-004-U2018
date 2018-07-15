@@ -53,7 +53,8 @@ int failCnt = 0;
  int main()
  {
 	int numPlayer = 2;
-	int player1 = 0, player2 = 0, handpos = 0, choice1 = 0, choice2 = 0, choice3 = 0, bonus = 0;
+	int player1 = 0, handpos = 0, choice1 = 0, choice2 = 0, choice3 = 0, bonus = 0;
+	int player2 = 1;
 	int seed = 1000;
 	int k[10] = {adventurer, council_room, feast, gardens, mine
 		, remodel, smithy, village, baron, great_hall};
@@ -100,6 +101,7 @@ int failCnt = 0;
 	printf("Result: %d\n", gState.handCount[player2]);
     assertTrue(gState.handCount[player2],copyGState.handCount[player2]);
 	//Player 2's deck
+	printf("\nPlayer 2 deck uneffected\n");
 	printf("Expected: %d\n", copyGState.deckCount[player2]);
 	printf("Result: %d\n", gState.deckCount[player2]);
     assertTrue(gState.deckCount[player2],copyGState.deckCount[player2]);
