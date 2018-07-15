@@ -80,12 +80,17 @@ int failCnt = 0;
 	
 	
 	// Check Results
-	// Requiment:  Current player should receive exactly 3 cards
+	// Requirment:  Current player should receive exactly 3 cards
 	printf("\nPlayer 1 receives exactly 3 cards\n");
 	printf("Expected: %d\n", copyGState.handCount[player1]+2);
 	printf("Result: %d\n", gState.handCount[player1]);
     assertTrue(gState.handCount[player1],copyGState.handCount[player1]+2);
 	
+	// Requirment:  The 3 cards should come from player's own pile.
+	printf("\nCard's come from Player 1's pile\n");
+	printf("Expected: %d\n", copyGState.deckCount[player1]-3);
+	printf("Result: %d\n", gState.deckCount[player1]);
+    assertTrue(gState.deckCount[player1],copyGState.deckCount[player1]-3);
 	
  
 	/* 
