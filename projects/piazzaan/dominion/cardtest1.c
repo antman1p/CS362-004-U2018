@@ -52,6 +52,7 @@ int failCnt = 0;
  // Main function
  int main()
  {
+	int i;
 	int numPlayer = 2;
 	int player1 = 0, handpos = 0, choice1 = 0, choice2 = 0, choice3 = 0, bonus = 0;
 	int player2 = 1;
@@ -94,7 +95,7 @@ int failCnt = 0;
     assertTrue(gState.deckCount[player1],copyGState.deckCount[player1]-3);
 	
 	// Requirement: No state change should occur for other players.
-	printf("\nPlayer 2 was not effected\n");
+	printf("\nTest Player 2 was not effected\n");
 	// Player 2's hand
 	printf("\nPlayer 2 hand uneffected\n");
 	printf("Expected: %d\n", copyGState.handCount[player2]);
@@ -107,7 +108,33 @@ int failCnt = 0;
     assertTrue(gState.deckCount[player2],copyGState.deckCount[player2]);
 	
 	// Requirement: No state change should occur to the victory card piles and kingdom card piles.
+	// Test Victory Piles
+	printf("\nTest Victory piles were not effected\n");
+	// Test Province Pile
+	printf("\nProvince Pile uneffected\n");
+	printf("Expected: %d\n", copyGState.supplyCount[province]);
+	printf("Result: %d\n", gState.supplyCount[province]);
+	assertTrue(gState.supplyCount[province],copyGState.supplyCount[province]);
+	// Test Duchy Pile
+	printf("\nDuchy Pile uneffected\n");
+	printf("Expected: %d\n", copyGState.supplyCount[duchy]);
+	printf("Result: %d\n", gState.supplyCount[duchy]);
+	assertTrue(gState.supplyCount[duchy],copyGState.supplyCount[duchy]);
+	// Test Estate Pile
+	printf("\nEstate Pile uneffected\n");
+	printf("Expected: %d\n", copyGState.supplyCount[estate]);
+	printf("Result: %d\n", gState.supplyCount[estate]);
+	assertTrue(gState.supplyCount[estate],copyGState.supplyCount[estate]);
 	
+	
+	// Test Kingdom Cards
+	printf("\nTest Kingdom card piles were not effected\n");
+	for (i = 0; i < 10; i++) {
+        printf("checking %s card pile\n", k[i]);
+		printf("Expected: %d\n", copyGState.supplyCount[k[i]]);
+		printf("Result: %d\n", gState.supplyCount[k[i]);
+        assertTrue(gState.supplyCount[k[i]],copyGState.supplyCount[k[i]]);
+    }
 	
  
 	/* 
