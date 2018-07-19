@@ -1,18 +1,41 @@
+/*
+ * CS362-400
+ * Random Tester Quiz
+ * testme.cabs
+ * 7/22/2018
+ * References:  https://www.asciitable.com/
+ */
+
+
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
 #include<time.h>
 
+// Returns random ASCII characters in integer form from cahracters "space" to "~" (32 to 126)
 char inputChar()
 {
-    // TODO: rewrite this function
-    return ' ';
+    int minChar = 32;          // Space
+	int maxChar = 126;         // ~
+	return (minChar + rand() % (maxChar - minChar));
 }
 
+
+// Returns a 6 character array consisting of 5 random characters from lower case a to 
+// lower case z (97 to 122) and a null character at the end
 char *inputString()
 {
-    // TODO: rewrite this function
-    return "";
+    char* stringArr[6];
+	int i;
+	int minChar = 97;          // a
+	int maxChar = 122;         // z
+	
+	for (i = 0; i < 5; i++) 
+	{
+		stringArr[i] = (minChar + rand() % (maxChar - minChar));
+	}
+	
+    return stringArr;
 }
 
 void testme()
