@@ -31,12 +31,13 @@ char *inputString()
 	int minChar = 97;          // a
 	int maxChar = 122;         // z
 	
+	// 5 iterations will leave the 6th char null
 	for (i = 0; i < 5; i++) 
 	{
 		stringArr[i] = (minChar + rand() % (maxChar - minChar));
 	}
 	
-    return &stringArr;
+    return stringArr;
 }
 
 void testme()
