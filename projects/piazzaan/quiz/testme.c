@@ -32,10 +32,10 @@ char *inputString()
 	
 	for (i = 0; i < 5; i++) 
 	{
-		stringArr[i] = (minChar + rand() % (maxChar - minChar));
+		stringArr[i] = minChar + rand() % (maxChar - minChar);
 	}
 	
-    return stringArr;
+    return *stringArr;
 }
 
 void testme()
