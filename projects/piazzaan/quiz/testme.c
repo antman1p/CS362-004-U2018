@@ -36,7 +36,7 @@ char *inputString()
 		stringArr[i] = (minChar + rand() % (maxChar - minChar));
 	}
 	
-    return *stringArr;
+    return &stringArr;
 }
 
 void testme()
