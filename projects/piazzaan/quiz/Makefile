@@ -5,3 +5,6 @@ randomtest: testme.c
 	echo "Random Testing testme() function"
 	./testme >> randomtest.out
 	gcov testme.c >> randomtest.out
+	
+clean:
+	rm -rf *.o *.gcov *.gcda *.gcno *.so *.out testme
