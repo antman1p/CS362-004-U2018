@@ -25,14 +25,15 @@ char inputChar()
 // lower case z (97 to 122) and a null character at the end
 char *inputString()
 {
-    char* stringArr[6];
+    char* stringArr;
+	stringArr = malloc (sizeof (char) * 6);
 	int i;
 	int minChar = 97;          // a
 	int maxChar = 122;         // z
 	
 	for (i = 0; i < 5; i++) 
 	{
-		stringArr[i] = minChar + rand() % (maxChar - minChar);
+		stringArr[i] = (minChar + rand() % (maxChar - minChar));
 	}
 	
     return *stringArr;
