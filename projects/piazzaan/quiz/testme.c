@@ -27,6 +27,7 @@ char *inputString()
 {
     char* stringArr;
 	stringArr = malloc (sizeof (char) * 6);
+	memset(stringArr, 0, 6);
 	int i;
 	int minChar = 97;          // a
 	int maxChar = 122;         // z
