@@ -54,7 +54,7 @@ int seed = 1000;
 	memcpy(&copyGState, &gS, sizeof(struct gameState));
 	
 	// call card effect function for Adventurer
-	cardEffect(adventurer, 0, 0, 0, &gS, 0, &bonus);
+	int testcardEffect = cardEffect(adventurer, 0, 0, 0, &gS, 0, &bonus);
 	
 	
 	// Check Results
