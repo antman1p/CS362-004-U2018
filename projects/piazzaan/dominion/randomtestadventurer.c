@@ -55,38 +55,38 @@ int failCnt = 0;
 	r = cardEffect(adventurer,0,0,0,post,0,&bonus);
 	
 	assertTrue(r, 0);
-	assertTrue(memcmp(&pre, post, sizeof(struct gameState)), 0);
+	//assertTrue(memcmp(&pre, post, sizeof(struct gameState)), 0);
 	
 	
-	// // Check Results
-	// //
-	// // Requirement:  Current player should receive exactly 2 treasure cards
-	// printf("\nPlayer %d receives exactly 2 treasure cards\n", player);
-	// // Check original number of treasure cards in player's hand
-	// for ( i = 0; i < pre.handCount[player]; i++)
-	// {
-		// card = pre.hand[player][i];
-		// if (card == copper || card == silver || card == gold) 
-		// {
-			// treasureNumOrig++;
-		// }
-	// }
+	// check results
+	//
+	// requirement:  current player should receive exactly 2 treasure cards
+	printf("\nplayer %d receives exactly 2 treasure cards\n", player);
+	// check original number of treasure cards in player's hand
+	for ( i = 0; i < pre.handcount[player]; i++)
+	{
+		card = pre.hand[player][i];
+		if (card == copper || card == silver || card == gold) 
+		{
+			treasurenumorig++;
+		}
+	}
 	
-	// // Check new number of treasure cards in player's hand
-	// for ( i = 0; i < post->handCount[player]; i++)
-	// {
-		// card = post->hand[player][i];
-		// if (card == copper || card == silver || card == gold) 
-		// {
-			// treasureNum++;
-		// }
-	// }
+	// check new number of treasure cards in player's hand
+	for ( i = 0; i < post->handcount[player]; i++)
+	{
+		card = post->hand[player][i];
+		if (card == copper || card == silver || card == gold) 
+		{
+			treasurenum++;
+		}
+	}
 	
-	// printf("Expected: %d\n", treasureNumOrig+2);
-	// printf("Result: %d\n", treasureNum);
+	printf("expected: %d\n", treasurenumorig+2);
+	printf("result: %d\n", treasurenum);
 	
-	// // Test and make sure the new number of treasures in the hand is 2 more than the original
-	// assertTrue(treasureNum, treasureNumOrig+2);
+	// test and make sure the new number of treasures in the hand is 2 more than the original
+	asserttrue(treasurenum, treasurenumorig+2);
 	
  }
  
