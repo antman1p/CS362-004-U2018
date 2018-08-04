@@ -110,7 +110,7 @@ int seed = 1000;
 		// Randomly initialize the game state
 		for (j=0; j < sizeof(struct gameState); j++) 
 		{
-			((char*)&gState)[j] = rand() % (256 + 1 -0 ) + 0);
+			((char*)&gState)[j] = rand() % (256 + 1 -0 ) + 0;
 		}
 		
 		// Change some of the game state properties to ensure tests will run properly (Rock Solid)
