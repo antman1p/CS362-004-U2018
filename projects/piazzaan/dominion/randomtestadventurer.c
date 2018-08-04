@@ -112,7 +112,7 @@ int seed = 1000;
 		{
 			((char*)&gState)[j] = floor(Random() * 256);
 			//debug
-			print("gstate[j] = %c", &gState)[j]);
+			print("gstate[j] = %c", &gState[j]);
 		}
 		
 		// Change some of the game state properties to ensure tests will run properly (Rock Solid)
