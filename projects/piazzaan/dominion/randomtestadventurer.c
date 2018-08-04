@@ -13,9 +13,53 @@
  #include <math.h>
  
  
+ /*
+ * To avoid making it hard to collect coverage when a test fails, 
+ * using my own asserttrue function instead of the standard C assert 
+ * (which basically crashes the code and fails to collect coverage). 
+ * My assert also prints whether the test passes or fails.  If the test   
+ * fails the fail counter int variable will increment by 1.
+ */
+ void assertTrue(int int1, int int2) 
+ {
+	if (int1 == int2) 
+	{
+		printf("Test Passed\n");
+	} 
+	else
+	{
+		printf("Test Failed\n");
+		failCnt++;
+	}
+ }
+ 
+ void testCard()
+ {
+	 
+ }
+ 
  
  int main()
  {
-	 printf("RANDOM ADVENTURER CARD TEST\n");
-	 return 0;
+	srand(time(0));
+	struct gameState gState;
+	int MAX_TESTS = 1000;
+	int treasures[] = {copper, silver, gold};
+	int numTreasures, i, j, playerNum;
+	
+	
+	// randomly select player position number
+	playerNum = floor(rand() * MAX_PLAYERS);
+	
+	//debug
+	printf("playerNum = %d\n", playerNum);
+	
+	
+	printf("RANDOM ADVENTURER CARD TEST\n");
+	
+	
+	
+	
+	 
+	return 0;
  }
