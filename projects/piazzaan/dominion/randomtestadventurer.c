@@ -9,11 +9,8 @@
 #include "dominion.h"
 #include "rngs.h"
 #include <time.h>
-#include <math.h>
 #include "dominion_helpers.h"
 #include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
  
  // Variable to keep count of test fails
 int failCnt = 0;
