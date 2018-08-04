@@ -8,9 +8,9 @@
  
  #include "dominion.h"
  #include "rngs.h"
- #include <stdlib.h>
  #include <time.h>
  #include <math.h>
+ #include "dominion_helpers.h"
  
  // Variable to keep count of test fails
 int failCnt = 0;
