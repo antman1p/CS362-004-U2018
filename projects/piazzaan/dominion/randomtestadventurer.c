@@ -45,7 +45,7 @@ int seed = 1000;
  {
 	 
 	int i, card;
-	int treasureNum = 0, treasureNumOrig = 0;
+	int treasureNum = 0, treasureNumOrig = 0, bonus = 0;
 	// Set Game State
 	struct gameState copyGState;
 	memset(&copyGState,23,sizeof(struct gameState));
@@ -54,7 +54,7 @@ int seed = 1000;
 	memcpy(&copyGState, &gS, sizeof(struct gameState));
 	
 	// call card effect function for Adventurer
-	cardEffect(adventurer, 0, 0, 0, &gS, 0, 0);
+	cardEffect(adventurer, 0, 0, 0, &gS, 0, &bonus);
 	
 	
 	// Check Results
@@ -96,30 +96,31 @@ int seed = 1000;
  int main()
  {
 	srand(time(0));
-	struct gameState gState;
+	
 	int TESTS = 1000;
 	int treasures[] = {copper, silver, gold};
 	int numTreasures, i, j, playerNum;
-	//int numPlayers;
+	int numPlayers;
 	int k[10] = {adventurer, council_room, feast, gardens, mine
 		, remodel, smithy, village, baron, great_hall};
 	
 	// Loop iterates for number of TESTS (Number of tests to be conducted)
 	for (i=0; i < TESTS; i++)
 	{
+		struct gameState gState;
 		// Set Game State
 		memset(&gState,23,sizeof(struct gameState));
 		
-		// // Randomly select the number of players in the game with a minimum of 2
-		// numPlayers = rand() % (MAX_PLAYERS + 1 - 2) + 2;
+		// Randomly select the number of players in the game with a minimum of 2
+		numPlayers = rand() % (MAX_PLAYERS + 1 - 2) + 2;
 		
-		// // Initialize game
-		// initializeGame(numPlayers, k, seed, &gState);
+		// Initialize game
+		initializeGame(numPlayers, k, seed, &gState);
 		
 		// Change some of the game states to ensure tests will run properly
 		
 		// randomly select player position number
-		playerNum = rand() % (MAX_PLAYERS + 1 - 0) + 0;
+		playerNum = rand() % (numPlayers + 1 - 0) + 0;
 		
 		// randomly assign player's deck count with at least 3 and no more than the max
 		gState.deckCount[playerNum] = rand() % (MAX_DECK + 1 - 3) + 3;
