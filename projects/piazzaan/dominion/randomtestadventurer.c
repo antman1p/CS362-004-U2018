@@ -137,7 +137,7 @@ int seed = 1000;
 		gState.handCount[playerNum] = rand() % (MAX_HAND + 1 - 3) + 3;
 		
 		// Set turn to this player
-		gameState.whoseTurn = playerNum;
+		gState.whoseTurn = playerNum;
 		
 		// Call test function
 		testCard(playerNum, &gState);
