@@ -7,15 +7,14 @@
  */
  
 #include "dominion.h"
+#include "dominion_helpers.h"
 #include "rngs.h"
 #include <time.h>
-#include "dominion_helpers.h"
 #include <stdio.h>
 #include <string.h>
  
  // Variable to keep count of test fails
 int failCnt = 0;
-int seed = 1000;
 
  
  
@@ -52,7 +51,7 @@ int seed = 1000;
 	memcpy(&pre, post, sizeof(struct gameState));
 	
 	// call card effect function for Adventurer
-	r = cardEffect(adventurer,0,0,0,post,0,&bonus);
+	r = cardEffect(adventurer,0,0,0,&post,0,&bonus);
 	
 	assertTrue(r, 0);
 	assertTrue(memcmp(&pre, post, sizeof(struct gameState)), 0);
@@ -87,9 +86,6 @@ int seed = 1000;
 	
 	// Test and make sure the new number of treasures in the hand is 2 more than the original
 	assertTrue(treasureNum, treasureNumOrig+2);
-	
-	
-	
 	
  }
  
