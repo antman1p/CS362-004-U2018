@@ -96,7 +96,7 @@ int seed = 1000;
  int main()
  {
 	srand(time(0));
-	
+	struct gameState gState;
 	int TESTS = 1000;
 	int treasures[] = {copper, silver, gold};
 	int numTreasures, i, j, playerNum;
@@ -104,20 +104,21 @@ int seed = 1000;
 	int k[10] = {adventurer, council_room, feast, gardens, mine
 		, remodel, smithy, village, baron, great_hall};
 	
+	// Set Game State
+	memset(&gState,23,sizeof(struct gameState));
+	
+	// Randomly select the number of players in the game with a minimum of 2
+	numPlayers = rand() % (MAX_PLAYERS + 1 - 2) + 2;
+	
+	// Initialize game
+	initializeGame(numPlayers, k, seed, &gState);
+	
 	// Loop iterates for number of TESTS (Number of tests to be conducted)
 	for (i=0; i < TESTS; i++)
 	{
-		struct gameState gState;
-		// Set Game State
-		memset(&gState,23,sizeof(struct gameState));
 		
-		// Randomly select the number of players in the game with a minimum of 2
-		numPlayers = rand() % (MAX_PLAYERS + 1 - 2) + 2;
 		
-		// Initialize game
-		initializeGame(numPlayers, k, seed, &gState);
-		
-		// Change some of the game states to ensure tests will run properly
+		// Change some of the game state properties to ensure tests will run properly
 		
 		// randomly select player position number
 		playerNum = rand() % (numPlayers + 1 - 0) + 0;
