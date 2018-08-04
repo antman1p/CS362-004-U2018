@@ -97,7 +97,6 @@ int failCnt = 0;
 	int TESTS = 1000;
 	int treasures[] = {copper, silver, gold};
 	int numTreasures, i, j, playerNum;
-	int numPlayers;
 	//int k[10] = {adventurer, council_room, feast, gardens, mine
 	//	, remodel, smithy, village, baron, great_hall};
 	
