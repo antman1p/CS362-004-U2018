@@ -44,17 +44,17 @@ int seed = 1000;
  void testCard(int player, struct gameState *gS)
  {
 	 
-	int i, card, testCardEffect;
+	int i, card;
 	int treasureNum = 0, treasureNumOrig = 0, bonus = 0;
 	// Set Game State
 	struct gameState copyGState;
 	//memset(&copyGState,23,sizeof(struct gameState));
 	
 	// copy the game state to the copy to preserve the game state
-	memcpy(&copyGState, &gS, sizeof(struct gameState));
+	memcpy(&copyGState, gS, sizeof(struct gameState));
 	
 	// call card effect function for Adventurer
-	testCardEffect = cardEffect(adventurer,0,0,0,gS,0,&bonus);
+	cardEffect(adventurer,0,0,0,gS,0,&bonus);
 	
 	
 	// Check Results
