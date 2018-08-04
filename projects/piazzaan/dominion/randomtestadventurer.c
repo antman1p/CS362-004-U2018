@@ -14,6 +14,7 @@
  
  // Variable to keep count of test fails
 int failCnt = 0;
+int seed = 1000;
 
  
  
@@ -37,9 +38,55 @@ int failCnt = 0;
 	}
  }
  
- void testCard()
+ void testCard(int player, struct gameState *gState)
  {
 	 
+	int i, card;
+	int treasureNum = 0, treasureNumOrig = 0;
+	// Set Game State
+	struct gameState copyGState;
+	memset(&copyGState,23,sizeof(struct gameState));
+	
+	// copy the game state to the copy to preserve the game state
+	memcpy(&copyGState, &gState, sizeof(struct gameState));
+	
+	// call card effect function for Adventurer
+	cardEffect(adventurer, 0, 0, 0, &gState, 0, &bonus);
+	
+	
+	// Check Results
+	//
+	// Requirement:  Current player should receive exactly 2 treasure cards
+	printf("\nPlayer %d receives exactly 2 treasure cards\n", player);
+	// Check original number of treasure cards in player's hand
+	for ( i = 0; i < copyGState.handCount[player]; i++)
+	{
+		card = copyGState.hand[player][i];
+		if (card == copper || card == silver || card == gold) 
+		{
+			treasureNumOrig++;
+		}
+	}
+	
+	// Check new number of treasure cards in player's hand
+	for ( i = 0; i < gState.handCount[player]; i++)
+	{
+		card = gState.hand[player][i];
+		if (card == copper || card == silver || card == gold) 
+		{
+			treasureNum++;
+		}
+	}
+	
+	printf("Expected: %d\n", treasureNumOrig+2);
+	printf("Result: %d\n", treasureNum);
+	
+	// Test and make sure the new number of treasures in the hand is 2 more than the original
+	assertTrue(treasureNum, treasureNumOrig+2);
+	
+	
+	
+	
  }
  
  
@@ -47,19 +94,61 @@ int failCnt = 0;
  {
 	srand(time(0));
 	struct gameState gState;
-	int MAX_TESTS = 1000;
+	int TESTS = 1000;
 	int treasures[] = {copper, silver, gold};
 	int numTreasures, i, j, playerNum;
+	int numPlayers;
+	int k[10] = {adventurer, council_room, feast, gardens, mine
+		, remodel, smithy, village, baron, great_hall};
+	
+	// Loop iterates for number of TESTS (Number of tests to be conducted)
+	for (i=0; i < TESTS; i++)
+	{
+		// Set Game State
+		memset(&gState,23,sizeof(struct gameState));
+		
+		// Randomly select the number of players in the game with a minimum of 2
+		numPlayers = rand() % (MAX_PLAYERS + 1 - 2) + 2;
+		
+		// Initialize game
+		initializeGame(numPlayers, k, seed, &gState);
+		
+		// Change some of the game states to ensure tests will run properly
+		
+		// randomly select player position number
+		playerNum = rand() % (numPlayers + 1 - 0) + 0;
+		
+		// randomly assign player's deck count with at least 3 and no more than the max
+		gState.deckCount[playerNum] = rand() % (MAX_DECK + 1 - 3) + 3;
+		
+		// randomly assign number of treasure cards in player's deck with a minumum of 3
+		numTreasures = rand() % (gState.deckCount[playerNum] + 1 - 3) + 3;
+		
+		// Add the treasure cards to player's deck (ensures at least 3 cards are treasure cards)
+		for (j=0; j < numTreasures; j++)
+		{
+			gState.deck[playerNum][j] = treasures[rand() % 3];  // Pick randomly from the three treasure card types
+		}
+		
+		// set players discard to 0
+		gState.discardCount[playerNum] = 0;
+		
+		// randomly set player's handcount with a minimum of 3
+		gState.handCount[playerNum] = rand() % (MAX_HAND + 1 - 3) + 3;
+		
+		// Set turn to this player
+		gameState.whoseTurn = playerNum;
+		
+		// Call test function
+		testCard(playerNum, &gState);
+	
+	}
+
 	
 	
-	// randomly select player position number
-	playerNum = rand() % (MAX_PLAYERS + 1 - 1) + 1;
-	
-	//debug
-	printf("playerNum = %d\n", playerNum);
 	
 	
-	printf("RANDOM ADVENTURER CARD TEST\n");
+	printf("\n---------------------------------------------------\nRANDOM ADVENTURER CARD TEST\n---------------------------------------------------");
 	
 	
 	
