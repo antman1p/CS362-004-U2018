@@ -82,11 +82,11 @@ int failCnt = 0;
 		}
 	}
 	
-	printf("expected: %d\n", treasurenumorig+2);
-	printf("result: %d\n", treasurenum);
+	printf("expected: %d\n", treasureNumOrig+2);
+	printf("result: %d\n", treasureNum);
 	
 	// test and make sure the new number of treasures in the hand is 2 more than the original
-	asserttrue(treasurenum, treasurenumorig+2);
+	asserttrue(treasureNum, treasureNumOrig+2);
 	
  }
  
