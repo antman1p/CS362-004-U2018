@@ -53,7 +53,7 @@ int failCnt = 0;
 	
 	
 	// randomly select player position number
-	playerNum = floor(rand() * MAX_PLAYERS);
+	playerNum = rand() % (MAX_PLAYERS + 1 - 1) + 1
 	
 	//debug
 	printf("playerNum = %d\n", playerNum);
