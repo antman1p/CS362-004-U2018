@@ -57,7 +57,7 @@ int seed = 1000;
 	r = cardEffect(adventurer,0,0,0,post,0,&bonus);
 	
 	assertTrue(r, 0);
-	assertTrue(memcmp(&pre, post, sizeof(struct gameState)), 0;
+	assertTrue(memcmp(&pre, post, sizeof(struct gameState)), 0);
 	
 	
 	// Check Results
@@ -119,7 +119,7 @@ int seed = 1000;
 		// Change some of the game state properties to meet preconditions
 		
 		// Randomize the number of players with a minimum of 2 and Max of MAX_PLAYERS
-		gState.numPlayers = rand() % (MAX_PLAYERS + 1 - 2) + 2
+		gState.numPlayers = rand() % (MAX_PLAYERS + 1 - 2) + 2;
 		
 		// randomly select player position number
 		playerNum = rand() % (gState.numPlayers + 1 - 0) + 0;
