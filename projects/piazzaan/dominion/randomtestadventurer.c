@@ -124,7 +124,7 @@ int failCnt = 0;
 		numTreasures = rand() % (gState.deckCount[playerNum] + 1 - 3) + 3;
 		
 		// Add the treasure cards to player's deck (ensures at least 3 cards are treasure cards)
-		for (j=0; i < numTreasures; j++)
+		for (j=0; j < numTreasures; j++)
 		{
 			gState.deck[playerNum][j] = treasures[rand() % 3];  // Pick randomly from the three treasure card types
 		}
