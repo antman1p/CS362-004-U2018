@@ -42,7 +42,7 @@ int seed = 1000;
  {
 	 
 	int i, card;
-	int treasureNum = 0, treasureNumOrig = 0;
+	int treasureNum = 0, treasureNumOrig = 0, bonus = 0;
 	// Set Game State
 	struct gameState copyGState;
 	memset(&copyGState,23,sizeof(struct gameState));
@@ -69,9 +69,9 @@ int seed = 1000;
 	}
 	
 	// Check new number of treasure cards in player's hand
-	for ( i = 0; i < gS.handCount[player]; i++)
+	for ( i = 0; i < gS->handCount[player]; i++)
 	{
-		card = gS.hand[player][i];
+		card = gS->hand[player][i];
 		if (card == copper || card == silver || card == gold) 
 		{
 			treasureNum++;
