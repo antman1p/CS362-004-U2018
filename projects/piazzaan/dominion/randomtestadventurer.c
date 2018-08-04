@@ -105,6 +105,9 @@ int failCnt = 0;
 	// Loop iterates for number of TESTS (Number of tests to be conducted)
 	for (i=0; i < TESTS; i++)
 	{
+		//debug
+		print("\nITERATION NUMBER %d\n", i);
+		
 		// Randomly initialize the game state
 		for (j=0; j < sizeof(struct gameState); j++) 
 		{
