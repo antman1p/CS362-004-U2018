@@ -51,7 +51,7 @@ int failCnt = 0;
 	memcpy(&pre, post, sizeof(struct gameState));
 	
 	// call card effect function for Adventurer
-	r = cardEffect(adventurer,0,0,0,&post,0,&bonus);
+	r = cardEffect(adventurer,0,0,0,post,0,&bonus);
 	
 	assertTrue(r, 0);
 	assertTrue(memcmp(&pre, post, sizeof(struct gameState)), 0);
