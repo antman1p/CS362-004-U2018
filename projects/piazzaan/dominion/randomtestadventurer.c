@@ -12,6 +12,10 @@
  #include <time.h>
  #include <math.h>
  
+ // Variable to keep count of test fails
+int failCnt = 0;
+
+ 
  
  /*
  * To avoid making it hard to collect coverage when a test fails, 
