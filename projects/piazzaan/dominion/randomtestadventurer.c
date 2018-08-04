@@ -42,7 +42,7 @@ int failCnt = 0;
  {
 	// Set a new Game State
 	struct gameState pre;
-	//memset(&pre,23,sizeof(struct gameState));	
+	memset(&pre,23,sizeof(struct gameState));	
 	int i, r, card;
 	int treasureNum = 0, treasureNumOrig = 0, bonus = 0;
 	
@@ -63,22 +63,22 @@ int failCnt = 0;
 	// requirement:  current player should receive exactly 2 treasure cards
 	printf("\nplayer %d receives exactly 2 treasure cards\n", player);
 	// check original number of treasure cards in player's hand
-	for ( i = 0; i < pre.handcount[player]; i++)
+	for ( i = 0; i < pre.handCount[player]; i++)
 	{
 		card = pre.hand[player][i];
 		if (card == copper || card == silver || card == gold) 
 		{
-			treasurenumorig++;
+			treasureNumOrig++;
 		}
 	}
 	
 	// check new number of treasure cards in player's hand
-	for ( i = 0; i < post->handcount[player]; i++)
+	for ( i = 0; i < post->handCount[player]; i++)
 	{
 		card = post->hand[player][i];
 		if (card == copper || card == silver || card == gold) 
 		{
-			treasurenum++;
+			treasureNum++;
 		}
 	}
 	
