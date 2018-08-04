@@ -104,22 +104,18 @@ int seed = 1000;
 	int k[10] = {adventurer, council_room, feast, gardens, mine
 		, remodel, smithy, village, baron, great_hall};
 	
-	// Set Game State
-	memset(&gState,23,sizeof(struct gameState));
-	
-	// Randomly select the number of players in the game with a minimum of 2
-	numPlayers = rand() % (MAX_PLAYERS + 1 - 2) + 2;
-	
-	// Initialize game
-	initializeGame(numPlayers, k, seed, &gState);
-	
 	// Loop iterates for number of TESTS (Number of tests to be conducted)
 	for (i=0; i < TESTS; i++)
 	{
+		// Randomly initialize the game state
+		for (j=0; j < sizeof(struct gameState); j++) 
+		{
+			((char*)&gState)[j] = floor(Random() * 256);
+			//debug
+			print("gstate[j] = %c", &gState)[j]);
+		}
 		
-		
-		// Change some of the game state properties to ensure tests will run properly
-		
+		// Change some of the game state properties to ensure tests will run properly (Rock Solid)
 		// randomly select player position number
 		playerNum = rand() % (numPlayers + 1 - 0) + 0;
 		
@@ -130,7 +126,7 @@ int seed = 1000;
 		numTreasures = rand() % (gState.deckCount[playerNum] + 1 - 3) + 3;
 		
 		// Add the treasure cards to player's deck (ensures at least 3 cards are treasure cards)
-		for (j=0; j < numTreasures; j++)
+		for (j=0; i < numTreasures; j++)
 		{
 			gState.deck[playerNum][j] = treasures[rand() % 3];  // Pick randomly from the three treasure card types
 		}
