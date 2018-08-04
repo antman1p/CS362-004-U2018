@@ -42,7 +42,7 @@ int failCnt = 0;
  {
 	// Set a new Game State
 	struct gameState pre;
-	memset(&pre,23,sizeof(struct gameState));	
+	//memset(&pre,23,sizeof(struct gameState));	
 	int i, r, card;
 	int treasureNum = 0, treasureNumOrig = 0, bonus = 0;
 	
