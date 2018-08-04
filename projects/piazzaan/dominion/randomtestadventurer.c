@@ -111,8 +111,6 @@ int seed = 1000;
 		for (j=0; j < sizeof(struct gameState); j++) 
 		{
 			((char*)&gState)[j] = floor(Random() * 256);
-			//debug
-			print("gstate[j] = %c\n", gState[j]);
 		}
 		
 		// Change some of the game state properties to ensure tests will run properly (Rock Solid)
