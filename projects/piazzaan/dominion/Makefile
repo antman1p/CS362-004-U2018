@@ -21,11 +21,11 @@ testBuyCard: testDrawCard.c dominion.o rngs.o
 testAll: dominion.o testSuite.c
 	gcc -o testSuite testSuite.c -g  dominion.o rngs.o $(CFLAGS)
 	
-randomtestadventurer.out: randomtestadventurer.c dominion.c rngs.c
-	gcc -o randomtestadventurer -g randomtestadventurer.c dominion.c rngs.c $(CFLAGS)
-	./randomtestadventurer >> randomtestadventurer.out
-	gcov randomtestadventurer.c -b >> randomtestadventurer.out
-	gcov dominion.c -b >> randomtestadventurer.out
+randomtestadventurer.out: randomtestadventurer.c dominion.o rngs.o
+	gcc -o randomtestadventurer -g randomtestadventurer.c dominion.o rngs.o $(CFLAGS)
+	# ./randomtestadventurer >> randomtestadventurer.out
+	# gcov randomtestadventurer.c -b >> randomtestadventurer.out
+	# gcov dominion.c -b >> randomtestadventurer.out
 	
 ranndomtestcard1.out:
 
