@@ -86,7 +86,7 @@ int failCnt = 0;
 	printf("result: %d\n", treasureNum);
 	
 	// test and make sure the new number of treasures in the hand is 2 more than the original
-	asserttrue(treasureNum, treasureNumOrig+2);
+	assertTrue(treasureNum, treasureNumOrig+2);
 	
  }
  
