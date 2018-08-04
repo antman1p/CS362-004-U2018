@@ -11,6 +11,7 @@
 #include <time.h>
 #include "dominion_helpers.h"
 #include <stdio.h>
+#include <stdlib.h>
  
  // Variable to keep count of test fails
 int failCnt = 0;
