@@ -41,20 +41,23 @@ int seed = 1000;
 	}
  }
  
- void testCard(int player, struct gameState *gS)
+ void testCard(int player, struct gameState *post)
  {
-	 
-	int i, card;
+	// Set a new Game State
+	struct gameState pre; 
+	int i, r, card;
 	int treasureNum = 0, treasureNumOrig = 0, bonus = 0;
-	// Set Game State
-	struct gameState copyGState;
-	//memset(&copyGState,23,sizeof(struct gameState));
+	
+	
 	
 	// copy the game state to the copy to preserve the game state
-	memcpy(&copyGState, gS, sizeof(struct gameState));
+	memcpy(&pre, post, sizeof(struct gameState));
 	
 	// call card effect function for Adventurer
-	cardEffect(adventurer,0,0,0,gS,0,&bonus);
+	r = cardEffect(adventurer,0,0,0,post,0,&bonus);
+	
+	assertTrue(r, 0);
+	assertTrue(memcmp(&pre, post, sizeof(struct gameState)), 0;
 	
 	
 	// Check Results
@@ -62,9 +65,9 @@ int seed = 1000;
 	// Requirement:  Current player should receive exactly 2 treasure cards
 	printf("\nPlayer %d receives exactly 2 treasure cards\n", player);
 	// Check original number of treasure cards in player's hand
-	for ( i = 0; i < copyGState.handCount[player]; i++)
+	for ( i = 0; i < pre.handCount[player]; i++)
 	{
-		card = copyGState.hand[player][i];
+		card = pre.hand[player][i];
 		if (card == copper || card == silver || card == gold) 
 		{
 			treasureNumOrig++;
@@ -72,9 +75,9 @@ int seed = 1000;
 	}
 	
 	// Check new number of treasure cards in player's hand
-	for ( i = 0; i < gS->handCount[player]; i++)
+	for ( i = 0; i < post->handCount[player]; i++)
 	{
-		card = gS->hand[player][i];
+		card = post->hand[player][i];
 		if (card == copper || card == silver || card == gold) 
 		{
 			treasureNum++;
@@ -110,12 +113,16 @@ int seed = 1000;
 		// Randomly initialize the game state
 		for (j=0; j < sizeof(struct gameState); j++) 
 		{
-			((char*)&gState)[j] = rand() % (256 + 1 -0 ) + 0;
+			((char*)&gState)[j] = rand() % (256 + 1 - 0 ) + 0;
 		}
 		
-		// Change some of the game state properties to ensure tests will run properly (Rock Solid)
+		// Change some of the game state properties to meet preconditions
+		
+		// Randomize the number of players with a minimum of 2 and Max of MAX_PLAYERS
+		gState.numPlayers = rand() % (MAX_PLAYERS + 1 - 2) + 2
+		
 		// randomly select player position number
-		playerNum = rand() % (numPlayers + 1 - 0) + 0;
+		playerNum = rand() % (gState.numPlayers + 1 - 0) + 0;
 		
 		// randomly assign player's deck count with at least 3 and no more than the max
 		gState.deckCount[playerNum] = rand() % (MAX_DECK + 1 - 3) + 3;
