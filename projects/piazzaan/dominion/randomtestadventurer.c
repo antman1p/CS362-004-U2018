@@ -6,4 +6,16 @@
  * References:
  */
  
+ #include "dominion.h"
+ #include "rngs.h"
+ #include <stdlib.h>
+ #include <time.h>
+ #include <math.h>
  
+ 
+ 
+ int main()
+ {
+	 printf("RANDOM ADVENTURER CARD TEST\n");
+	 return 0;
+ }
