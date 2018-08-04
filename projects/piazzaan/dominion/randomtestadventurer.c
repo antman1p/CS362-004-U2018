@@ -38,7 +38,7 @@ int seed = 1000;
 	}
  }
  
- void testCard(int player, struct gameState *gState)
+ void testCard(int player, struct gameState *gS)
  {
 	 
 	int i, card;
@@ -48,10 +48,10 @@ int seed = 1000;
 	memset(&copyGState,23,sizeof(struct gameState));
 	
 	// copy the game state to the copy to preserve the game state
-	memcpy(&copyGState, &gState, sizeof(struct gameState));
+	memcpy(&copyGState, &gS, sizeof(struct gameState));
 	
 	// call card effect function for Adventurer
-	cardEffect(adventurer, 0, 0, 0, &gState, 0, &bonus);
+	cardEffect(adventurer, 0, 0, 0, &gS, 0, &bonus);
 	
 	
 	// Check Results
@@ -69,9 +69,9 @@ int seed = 1000;
 	}
 	
 	// Check new number of treasure cards in player's hand
-	for ( i = 0; i < gState.handCount[player]; i++)
+	for ( i = 0; i < gS.handCount[player]; i++)
 	{
-		card = gState.hand[player][i];
+		card = gS.hand[player][i];
 		if (card == copper || card == silver || card == gold) 
 		{
 			treasureNum++;
