@@ -106,7 +106,7 @@ int failCnt = 0;
 	for (i=0; i < TESTS; i++)
 	{
 		//debug
-		print("\nITERATION NUMBER %d\n", i);
+		printf("\nITERATION NUMBER %d\n", i);
 		
 		// Randomly initialize the game state
 		for (j=0; j < sizeof(struct gameState); j++) 
