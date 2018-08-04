@@ -48,7 +48,7 @@ int seed = 1000;
 	int treasureNum = 0, treasureNumOrig = 0, bonus = 0;
 	// Set Game State
 	struct gameState copyGState;
-	memset(&copyGState,23,sizeof(struct gameState));
+	//memset(&copyGState,23,sizeof(struct gameState));
 	
 	// copy the game state to the copy to preserve the game state
 	memcpy(&copyGState, &gS, sizeof(struct gameState));
