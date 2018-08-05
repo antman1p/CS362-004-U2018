@@ -54,6 +54,9 @@ int failCnt = 0;
 	// call card effect function for Adventurer
 	r = cardEffect(adventurer,0,0,0,post,0,&bonus);
 	
+	
+	// Test cardEffect
+	printf("Testing CardEffect()\n");
 	assertTrue(r, 0);
 	//assertTrue(memcmp(&pre, post, sizeof(struct gameState)), 0);
 	
@@ -88,6 +91,12 @@ int failCnt = 0;
 	// test and make sure the new number of treasures in the hand is 2 more than the original
 	assertTrue(treasureNum, treasureNumOrig+2);
 	
+	// Test hand count of player 1 increased by 2
+	printf("\nPlayer %d hand count increased by exactly 2 \n", player);
+	printf("Expected: %d\n", pre.handCount[player1]+2);
+	printf("Result: %d\n", post->handCount[player1]);
+    assertTrue(post->handCount[player1],pre.handCount[player1]+2);
+	
  }
  
  
@@ -118,37 +127,18 @@ int failCnt = 0;
 		
 		// Randomize the number of players with a minimum of 2 and Max of MAX_PLAYERS
 		gState.numPlayers = (rand() % (MAX_PLAYERS + 1 - 2)) + 2;
-		//
-		//DEBUG
-		printf("Number of Players: %d\n", gState.numPlayers);
-		//
-		//
 		
 		
 		// randomly select player position number
 		playerNum = (rand() % (gState.numPlayers - 0)) + 0;
-		//
-		//DEBUG
-		printf("PLayerNum: %d\n", playerNum);
-		//
-		//
 		
 		
 		// randomly assign player's deck count with at least 3 and no more than the max
 		gState.deckCount[playerNum] = (rand() % (MAX_DECK + 1 - 3)) + 3;
-		//
-		//DEBUG
-		printf("Deckcount: %d\n", gState.deckCount[playerNum]);
-		//
-		//
 		
 		
 		// randomly assign number of treasure cards in player's deck with a minumum of 3
 		numTreasures = (rand() % (gState.deckCount[playerNum] + 1 - 3)) + 3;
-		//DEBUG
-		printf("numTreasures: %d\n", numTreasures);
-		//
-		//
 		
 		
 		
@@ -163,12 +153,7 @@ int failCnt = 0;
 		
 		// randomly set player's handcount with a minimum of 3
 		gState.handCount[playerNum] = (rand() % (MAX_HAND + 1 - 3)) + 3;
-		//
-		//DEBUG
-		printf("handCount: %d\n", gState.handCount[playerNum]);
-		//
-		//
-		
+	
 		
 		// Set turn to this player
 		gState.whoseTurn = playerNum;
