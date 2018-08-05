@@ -43,7 +43,7 @@ int failCnt = 0;
 	// Set a new Game State
 	struct gameState pre;
 	memset(&pre,23,sizeof(struct gameState));	
-	int i, r, card;
+	int i, r, j, card;
 	int treasureNum = 0, treasureNumOrig = 0, bonus = 0;
 	
 	
@@ -96,6 +96,54 @@ int failCnt = 0;
 	printf("Expected: %d\n", pre.handCount[player]+2);
 	printf("Result: %d\n", post->handCount[player]);
     assertTrue(post->handCount[player],pre.handCount[player]+2);
+	
+	
+	
+	for (i=0; i < post->numPlayers; i++)
+	{
+		if(i != player) {
+			// Requirement: No state change should occur for other players.
+			printf("\nTest Player %d was not effected\n", i);
+			// Player 2's hand
+			printf("\nPlayer d% hand uneffected\n", i);
+			printf("Expected: %d\n", pre.handCount[i]);
+			printf("Result: %d\n", post->handCount[i]);
+			assertTrue(post->.handCount[i],pre.handCount[i]);
+			//Player 2's deck
+			printf("\nPlayer %d deck uneffected\n", i);
+			printf("Expected: %d\n", pre.deckCount[i]);
+			printf("Result: %d\n", post->deckCount[i]);
+			assertTrue(post->deckCount[i],pre.deckCount[i]);
+			
+			// Requirement: No state change should occur to the victory card piles and kingdom card piles.
+			// Test Victory Piles
+			printf("\nTest Victory piles were not effected\n");
+			// Test Province Pile
+			printf("\nProvince Pile uneffected\n");
+			printf("Expected: %d\n", pre.supplyCount[province]);
+			printf("Result: %d\n", post->supplyCount[province]);
+			assertTrue(post->supplyCount[province],pre.supplyCount[province]);
+			// Test Duchy Pile
+			printf("\nDuchy Pile uneffected\n");
+			printf("Expected: %d\n", pre.supplyCount[duchy]);
+			printf("Result: %d\n", post->supplyCount[duchy]);
+			assertTrue(post->supplyCount[duchy],pre.supplyCount[duchy]);
+			// Test Estate Pile
+			printf("\nEstate Pile uneffected\n");
+			printf("Expected: %d\n", pre.supplyCount[estate]);
+			printf("Result: %d\n", post->supplyCount[estate]);
+			assertTrue(post->supplyCount[estate],pre.supplyCount[estate]);
+			
+			
+			// Test Kingdom Cards
+			printf("\nTest Kingdom card piles were not effected\n");
+			for (j = 0; j < 10; j++) {
+				printf("\nchecking card %d pile\n", k[j]);
+				printf("Expected: %d\n", pre.supplyCount[k[j]]);
+				printf("Result: %d\n", post->supplyCount[k[j]]);
+				assertTrue(post->supplyCount[k[j]],pre.supplyCount[k[j]]);
+			}
+		}
 	
  }
  
@@ -160,7 +208,22 @@ int failCnt = 0;
 		
 		// Call test function
 		testCard(playerNum, &gState);
-	
-	}	 
+	}
+
+
+/* 
+	 * Print “TEST SUCCESSFULLY COMPLETED” If and only if the entire test  
+	 * passes, and usually (this isn’t always possible for crashing bugs) print 
+	 * "TEST FAILED” for a failure. This makes it easy to  process failing and passing tests. 
+	 */
+	if (failCnt)  // If the counter is greater than 0 print fail message
+	{
+		printf("\n---------------------------------------------------\nTEST FAILED\n---------------------------------------------------\n\n");
+	}
+	else          // Else all tests pass, print pass message
+	{
+		printf("\n---------------------------------------------------\nTEST SUCCESSFULLY COMPLETED\n---------------------------------------------------\n\n");
+	}
+	  
 	return 0;
  }
