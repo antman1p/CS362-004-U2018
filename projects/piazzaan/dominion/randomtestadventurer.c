@@ -126,7 +126,12 @@ int failCnt = 0;
 		
 		
 		// randomly select player position number
-		playerNum = (rand() % (gState.numPlayers + 1 - 0)) + 0;
+		playerNum = (rand() % (gState.numPlayers - 0)) + 0;
+		//
+		//DEBUG
+		printf("PLayerNum: %d\n", playerNum);
+		//
+		//
 		
 		
 		// randomly assign player's deck count with at least 3 and no more than the max
