@@ -45,6 +45,8 @@ int failCnt = 0;
 	memset(&pre,23,sizeof(struct gameState));	
 	int i, r, j, card;
 	int treasureNum = 0, treasureNumOrig = 0, bonus = 0;
+	int k[10] = {adventurer, council_room, feast, gardens, mine
+		, remodel, smithy, village, baron, great_hall};
 	
 	
 	
@@ -211,7 +213,7 @@ int failCnt = 0;
 	}
 
 
-/* 
+	/* 
 	 * Print “TEST SUCCESSFULLY COMPLETED” If and only if the entire test  
 	 * passes, and usually (this isn’t always possible for crashing bugs) print 
 	 * "TEST FAILED” for a failure. This makes it easy to  process failing and passing tests. 
