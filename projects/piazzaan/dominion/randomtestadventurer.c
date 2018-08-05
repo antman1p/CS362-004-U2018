@@ -93,9 +93,9 @@ int failCnt = 0;
 	
 	// Test hand count of player 1 increased by 2
 	printf("\nPlayer %d hand count increased by exactly 2 \n", player);
-	printf("Expected: %d\n", pre.handCount[player1]+2);
-	printf("Result: %d\n", post->handCount[player1]);
-    assertTrue(post->handCount[player1],pre.handCount[player1]+2);
+	printf("Expected: %d\n", pre.handCount[player]+2);
+	printf("Result: %d\n", post->handCount[player]);
+    assertTrue(post->handCount[player],pre.handCount[player]+2);
 	
  }
  
