@@ -157,7 +157,7 @@ int failCnt = 0;
 	srand(time(0));
 	struct gameState gState;
 	memset(&gState,23,sizeof(struct gameState));
-	int TESTS = 1000;
+	int TESTS = 10000;
 	int treasures[] = {copper, silver, gold};
 	int numTreasures, i, j, playerNum;
 
