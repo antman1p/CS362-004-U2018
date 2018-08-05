@@ -108,7 +108,7 @@ int failCnt = 0;
 			// Requirement: No state change should occur for other players.
 			printf("\nTest Player %d was not effected\n", i);
 			// Player 2's hand
-			printf("\nPlayer d% hand uneffected\n", i);
+			printf("\nPlayer %d hand uneffected\n", i);
 			printf("Expected: %d\n", pre.handCount[i]);
 			printf("Result: %d\n", post->handCount[i]);
 			assertTrue(post->handCount[i],pre.handCount[i]);
