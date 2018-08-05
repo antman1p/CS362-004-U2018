@@ -105,40 +105,65 @@ int failCnt = 0;
 	// Loop iterates for number of TESTS (Number of tests to be conducted)
 	for (i=0; i < TESTS; i++)
 	{
-		//debug
+		//DEBUG
 		printf("\nITERATION NUMBER %d\n", i);
 		
 		// Randomly initialize the game state
 		for (j=0; j < sizeof(struct gameState); j++) 
 		{
-			((char*)&gState)[j] = rand() % (256 + 1 - 0 ) + 0;
+			((char*)&gState)[j] = (rand() % (256 + 1 - 0 ) )+ 0;
 		}
 		
 		// Change some of the game state properties to meet preconditions
 		
 		// Randomize the number of players with a minimum of 2 and Max of MAX_PLAYERS
-		gState.numPlayers = rand() % (MAX_PLAYERS + 1 - 2) + 2;
+		gState.numPlayers = (rand() % (MAX_PLAYERS + 1 - 2)) + 2;
+		//
+		//DEBUG
+		printf("Number of Players: %d\n", gState.numPlayers);
+		//
+		//
+		
 		
 		// randomly select player position number
-		playerNum = rand() % (gState.numPlayers + 1 - 0) + 0;
+		playerNum = (rand() % (gState.numPlayers + 1 - 0)) + 0;
+		
 		
 		// randomly assign player's deck count with at least 3 and no more than the max
-		gState.deckCount[playerNum] = rand() % (MAX_DECK + 1 - 3) + 3;
+		gState.deckCount[playerNum] = (rand() % (MAX_DECK + 1 - 3)) + 3;
+		//
+		//DEBUG
+		printf("Deckcount: %d\n", gState.deckCount[playerNum]);
+		//
+		//
+		
 		
 		// randomly assign number of treasure cards in player's deck with a minumum of 3
-		numTreasures = rand() % (gState.deckCount[playerNum] + 1 - 3) + 3;
+		numTreasures = (rand() % (gState.deckCount[playerNum] + 1 - 3)) + 3;
+		//DEBUG
+		printf("numTreasures: %d\n", numTreasures);
+		//
+		//
+		
+		
 		
 		// Add the treasure cards to player's deck (ensures at least 3 cards are treasure cards)
 		for (j=0; j < numTreasures; j++)
 		{
-			gState.deck[playerNum][j] = treasures[rand() % 3];  // Pick randomly from the three treasure card types
+			gState.deck[playerNum][j] = treasures[(rand() % 3)];  // Pick randomly from the three treasure card types
 		}
 		
 		// set players discard to 0
 		gState.discardCount[playerNum] = 0;
 		
 		// randomly set player's handcount with a minimum of 3
-		gState.handCount[playerNum] = rand() % (MAX_HAND + 1 - 3) + 3;
+		gState.handCount[playerNum] = (rand() % (MAX_HAND + 1 - 3)) + 3;
+		//
+		//DEBUG
+		printf("handCount: %d\n", gState.handCount[playerNum]);
+		//
+		//
+		
 		
 		// Set turn to this player
 		gState.whoseTurn = playerNum;
