@@ -23,9 +23,9 @@ testAll: dominion.o testSuite.c
 	
 randomtestadventurer.out: randomtestadventurer.c dominion.o rngs.o
 	gcc -o randomtestadventurer -g randomtestadventurer.c dominion.o rngs.o $(CFLAGS)
-	# ./randomtestadventurer >> randomtestadventurer.out
-	# gcov randomtestadventurer.c -b >> randomtestadventurer.out
-	# gcov dominion.c -b >> randomtestadventurer.out
+	./randomtestadventurer >> randomtestadventurer.out
+	gcov randomtestadventurer.c -b >> randomtestadventurer.out
+	gcov dominion.c -b >> randomtestadventurer.out
 	
 ranndomtestcard1.out:
 
