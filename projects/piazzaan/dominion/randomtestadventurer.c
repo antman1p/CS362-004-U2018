@@ -103,14 +103,15 @@ int failCnt = 0;
 	
 	for (i=0; i < post->numPlayers; i++)
 	{
-		if(i != player) {
+		if(i != player) 
+		{
 			// Requirement: No state change should occur for other players.
 			printf("\nTest Player %d was not effected\n", i);
 			// Player 2's hand
 			printf("\nPlayer d% hand uneffected\n", i);
 			printf("Expected: %d\n", pre.handCount[i]);
 			printf("Result: %d\n", post->handCount[i]);
-			assertTrue(post->.handCount[i],pre.handCount[i]);
+			assertTrue(post->handCount[i],pre.handCount[i]);
 			//Player 2's deck
 			printf("\nPlayer %d deck uneffected\n", i);
 			printf("Expected: %d\n", pre.deckCount[i]);
@@ -139,14 +140,15 @@ int failCnt = 0;
 			
 			// Test Kingdom Cards
 			printf("\nTest Kingdom card piles were not effected\n");
-			for (j = 0; j < 10; j++) {
+			for (j = 0; j < 10; j++) 
+			{
 				printf("\nchecking card %d pile\n", k[j]);
 				printf("Expected: %d\n", pre.supplyCount[k[j]]);
 				printf("Result: %d\n", post->supplyCount[k[j]]);
 				assertTrue(post->supplyCount[k[j]],pre.supplyCount[k[j]]);
 			}
 		}
-	
+	}
  }
  
  
