@@ -71,7 +71,7 @@ int failCnt = 0;
 	printf("\nCard's come from Player 1's pile\n");
 	printf("Expected: %d\n", pre.deckCount[player]-3);
 	printf("Result: %d\n", post->deckCount[player]);
-    assertTrue(post->deckCount[player],pre.deckCount[player1]-3);
+    assertTrue(post->deckCount[player],pre.deckCount[player]-3);
 	
 	for (i=0; i < post->numPlayers; i++)
 	{
