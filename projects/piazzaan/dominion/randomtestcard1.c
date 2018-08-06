@@ -183,6 +183,9 @@ int failCnt = 0;
 		// Set turn to this player
 		gState.whoseTurn = playerNum;
 		
+		// Set PLayed Card Count to 0
+		gState.playedCardCount = 0;
+		
 		// Call test function
 		testCard(playerNum, &gState);
 	}
