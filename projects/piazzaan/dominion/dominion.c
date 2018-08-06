@@ -1295,7 +1295,7 @@ void adventurerFunc(struct gameState *state, int currentPlayer, int temphand[], 
 {
 	int cardDrawn;
 	int drawntreasure = 0;
-	while(drawntreasure<2){
+	while(drawntreasure<3){
 		if (state->deckCount[currentPlayer] <1){//if the deck is empty we need to shuffle discard and add to deck
 		  shuffle(currentPlayer, state);
 		}
@@ -1319,7 +1319,7 @@ void smithyFunc(struct gameState *state, int currentPlayer, int handPos)
 {
 	int i;
 	//+3 Cards
-    for (i = 0; i < 3; i++)
+    for (i = 0; i < 2; i++)
 	{
 	  drawCard(currentPlayer, state);
 	}
