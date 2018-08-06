@@ -27,7 +27,11 @@ randomtestadventurer.out: randomtestadventurer.c dominion.o rngs.o
 	gcov randomtestadventurer.c -b >> randomtestadventurer.out
 	gcov dominion.c -b >> randomtestadventurer.out
 	
-ranndomtestcard1.out:
+ranndomtestcard1.out: randomtestcard1.c dominion.o rngs.o
+	gcc -o randomtestcard1 -g randomtestcard1.c dominion.o rngs.o $(CFLAGS)
+	./randomtestadventurer >> randomtestadventurer.out
+	gcov randomtestcard1.c -b >> randomtestcard1.out
+	gcov dominion.c -b >> randomtestadventurer.out
 
 
 ranndomtestcard2.out:
