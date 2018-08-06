@@ -74,7 +74,7 @@ int failCnt = 0;
 	printf("\nPlayer 1 receives 1 card from their own pile\n");
 	printf("Expected: %d\n", pre.deckCount[player] - 1);
 	printf("Result: %d\n", post->deckCount[player]);
-	assertTrue(post->.deckCount[player], pre.deckCount[player] - 1);
+	assertTrue(post->deckCount[player], pre.deckCount[player] - 1);
 	
 	
 	// Requirement:  Player  receives exactly 2 actions
