@@ -40,7 +40,41 @@ randomtestcard2.out: randomtestcard2.c dominion.o rngs.o
 	gcov randomtestcard2.c -b >> randomtestcard2.out
 	gcov dominion.c -b >> randomtestcard2.out
 
-
+unittestresults: unittest1.c unittest2.c dominion.c rngs.c
+	echo "Result for running Dominion test suit:" > unittestresults.out
+	
+	echo "unittest1.c: " >> unittestresults.out
+	gcc -o unittest1 -g  unittest1.c dominion.c rngs.c $(CFLAGS)
+	./unittest1 >> unittestresults.out
+	gcov unittest1.c -b >> unittestresults.out
+	gcov dominion.c -b >> unittestresults.out
+	
+	echo "unittest2.c:" >> unittestresults.out
+	gcc -o unittest2 -g unittest2.c dominion.c rngs.c $(CFLAGS)
+	./unittest2 >> unittestresults.out
+	gcov unittest2.c -b >> unittestresults.out
+	gcov dominion.c -b >> unittestresults.out
+	
+	
+	echo "unittest3.c:" >> unittestresults.out
+	gcc -o unittest3 -g unittest3.c dominion.c rngs.c $(CFLAGS)
+	./unittest3 >> unittestresults.out
+	gcov unittest3.c -b >> unittestresults.out
+	gcov dominion.c -b >> unittestresults.out
+	
+	
+	echo "unittest4.c:" >> unittestresults.out
+	gcc -o unittest4 -g unittest4.c dominion.c rngs.c $(CFLAGS)
+	./unittest4 >> unittestresults.out
+	gcov unittest4.c -b >> unittestresults.out
+	gcov dominion.c -b >> unittestresults.out
+	
+	
+	gcov unittest1.c -b >> unittestresults.out
+	gcov unittest2.c -b >> unittestresults.out
+	gcov unittest3.c -b >> unittestresults.out
+	gcov unittest4.c -b >> unittestresults.out
+	gcov dominion.c -b >> unittestresults.out
 
 	
 
