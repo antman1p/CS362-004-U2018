@@ -1274,7 +1274,7 @@ int updateCoins(int player, struct gameState *state, int bonus)
   //contains a bug - see Assignment-2.pdf for details
  int adventurerCard(int drawntreasure, int currentPlayer, struct gameState *state, int cardDrawn, int temphand[], int z){
 
-        while(drawntreasure<3){
+        while(drawntreasure<2){
         if (state->deckCount[currentPlayer] <1){//if the deck is empty we need to shuffle discard and add to deck
           shuffle(currentPlayer, state);
          }
