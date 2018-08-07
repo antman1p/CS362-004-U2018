@@ -63,9 +63,9 @@ int failCnt = 0;
 	// Check Results
 	// Requirement:  Current player should receive exactly 3 cards
 	printf("\nPlayer 1 receives exactly 3 cards\n");
-	printf("Expected: %d\n", pre.handCount[player]+2);
+	printf("Expected: %d\n", pre.handCount[player]+3);
 	printf("Result: %d\n", post->handCount[player]);
-    assertTrue(post->handCount[player],pre.handCount[player]+2);
+    assertTrue(post->handCount[player],pre.handCount[player]+3);
 	
 	// Requirement:  The 3 cards should come from player's own pile.
 	printf("\nCard's come from Player 1's pile\n");
