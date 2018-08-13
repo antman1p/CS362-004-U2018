@@ -21,7 +21,10 @@ public class UrlValidatorTest extends TestCase {
    
    public void testManualTest()
    {
-//You can use this function to implement your manual testing	   
+//You can use this function to implement your manual testing
+	   String[] schemes = {"http","https"};
+       UrlValidator urlValidator = new UrlValidator(schemes);
+       assertTrue(urlValidator.isValid("http://tech.yahoo.com/rc/desktops/102;_ylt=Ao8yevQHlZ4On0O3ZJGXLEQFLZA5"));
 	   
    }
    
